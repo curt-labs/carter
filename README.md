@@ -61,3 +61,22 @@ Add a forwarding rule
 ```shell
 $ gcloud compute forwarding-rules create http-rule --global --target-http-proxy web-proxy --port-range 80
 ```
+
+#### Rolling Update
+
+A rolling update causes the service to gradually recreate your existing instances
+with the new template. You can increase the number of instances updated
+simultaneously with the --max-num-concurrent-instances flag. If you are not
+sure you want to apply an update to all existing instances, you can use the
+--num-canary-instances flag and the update will automatically be paused after
+updating the number of instances specified. Afterwards, you can decide whether
+to cancel or continue the update.
+
+In case you notice your managed instance group misbehaving due to the new
+template, you can roll back the update. This will stop the update from being
+applied to more instances, and instances already created with the new template
+will be recreated with the last template applied before the current update.
+
+```shell
+$ gcloud preview managed-instance-groups --zone us-central1-f start-rolling-update carter-group --template carter-template
+```
