@@ -12,6 +12,11 @@ this way is that currently you are required to have a local instance of
 [boot2docker](http://boot2docker.io/) configured as
 so [docker guide](https://docs.docker.com/installation/mac/).
 
+Also the frontend is generated using the yeoman
+[angular-require](https://github.com/aaronallport/generator-angular-require),
+so you can use the generators in that package for creating Angular Controllers,
+Services, Directives, Factories, etc.
+
 
 ### Compute Engine Elastic Deployment
 
