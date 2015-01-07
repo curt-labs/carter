@@ -10,3 +10,45 @@
 	color: #000;
 	padding: 0.2em 0;
 }
+
+body{
+	.body-content{
+		max-width:864px;
+		margin:auto;
+	}
+
+	.category{
+		.heading{
+			.image{
+				width: 150px;
+				height:150px;
+				margin:16px;
+				img{
+					max-width: 150px;
+				}
+			}
+		}
+	}
+}
+
+md-card{
+	display:block;
+	box-sizing: border-box;
+	box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.26);
+	margin: 8px;
+	padding: 8px;
+
+	.md-tile-left img{
+		width: 100px;
+		margin: 16px;
+	}
+
+	md-tile-content{
+		-webkit-box-flex: 1;
+		-webkit-flex: 1;
+		-ms-flex: 1;
+		flex: 1;
+		padding: 16px;
+		text-overflow: ellipsis;
+	}
+}

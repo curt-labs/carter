@@ -3,13 +3,26 @@ define(['angular'], function (angular) {
 
 	/**
 	 * @ngdoc function
-	 * @name ngRequirerApp.controller:MainCtrl
+	 * @name carter.controller:MainCtrl
 	 * @description
 	 * # MainCtrl
-	 * Controller of the ngRequirerApp
+	 * Controller of the carter
 	 */
-	angular.module('ngRequirerApp.controllers.MainCtrl', ['ngRequirerApp.services.Category'])
-		.controller('MainCtrl', function ($scope, $rootScope, Category) {
-			$rootScope.parentCategories = Category.parents({'key':'9300f7bc-2ca6-11e4-8758-42010af0fd79'});
+	angular.module('carter.controllers.MainCtrl', [])
+		.controller('MainCtrl', function ($rootScope, $scope, $location) {
+			$scope.categories = [];
+			if($rootScope.parentCategories !== undefined){
+				$scope.categories = $rootScope.parentCategories;
+			}
+
+			$scope.generateCategoryImage = function(cat){
+				if(cat.image !== undefined){
+					return cat.image.Scheme + '://' + cat.image.Host + cat.image.Path;
+				}
+				return '://';
+			};
+			$scope.goTo = function(path){
+				$location.path(path);
+			};
 		});
 });

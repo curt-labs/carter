@@ -1,6 +1,7 @@
 <!doctype html>
-<html class="no-js" ng-app>
+<html class="no-js" ng-app="carter">
 	<head>
+		<base href="/">
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title></title>
@@ -16,15 +17,15 @@
 		<link rel="stylesheet" href="styles/css/main.css">
 		<!-- endbuild -->
 	</head>
-	<body ng-app="ngRequirerApp" layout="row">
+	<body ng-controller="AppController" layout="row" ng-cloak>
 		<!--[if lt IE 7]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 
-		<md-sidenav layout="column" style="overflow: hidden; display: flex;" class="md-sidenav-left md-whiteframe-z2 md-closed ng-isolate-scope md-locked-open" md-component-id="left" md-is-locked-open="$media('gt-sm')" tabindex="-1">
+		<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2 md-closed ng-isolate-scope md-locked-open" md-component-id="left" md-is-locked-open="$media('gt-sm')" tabindex="-1">
 			<md-toolbar style="min-height: 64px; max-height:64px;" layout="column" class="md-blue-theme">
 				<h1 class="md-toolbar-tools" flex="" layout="column">
-					<a href="" ng-href="/" ng-click="goHome()" layout="row" flex="" tabindex="0">
+					<a ng-href="#/" ng-click="goHome()" layout="row" flex="" tabindex="0">
 						<svg version="1.1"xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 120 120" enable-background="new 0 0 120 120" xml:space="preserve" style="width: 40px; height: 40px;">
 							<path id="Bug_Only" fill="#F15A22" d="M48.4,47c0.3,0,0.6,0,0.9,0c0.7-9.1,7-16.6,15.3-19.3h-28c-4.9,0-8.9,4-8.9,8.9v21.9
 							C32,51.6,39.7,47,48.4,47z M106.3,27.7H78.2c8.3,2.7,14.5,10.2,15.3,19.2c0.2,0,0.4,0,0.5,0c8.9,0,16.8,4.8,21.1,11.9V36.6
@@ -51,22 +52,20 @@
 				</h1>
 			</md-toolbar>
 
-			<md-content flex="" style="overflow: auto;" class="md-default-theme">
-				<md-list role="list">
-
-				<md-item ng-repeat="cat in parentCategories | orderBy:'sort'" class="ng-scope" role="listitem">
-					<md-item-content>
-						<div class="md-tile-content">
-							<h3 class="ng-binding">[[cat.title]]</h3>
-						</div>
-					</md-item-content>
-				</md-item><!-- end ngRepeat: item in todos -->
-
+			<md-content flex style="overflow: auto;" class="md-default-theme md-padding">
+				<md-list role="list" hide-md show-gt-md>
+					<md-item ng-repeat="cat in parentCategories | orderBy:'sort'" class="ng-scope" role="listitem">
+						<md-item-content>
+							<div class="md-tile-content">
+								<h3 class="ng-binding">[[cat.title]]</h3>
+							</div>
+						</md-item-content>
+					</md-item><!-- end ngRepeat: item in todos -->
 				</md-list>
 			</md-content>
 		</md-sidenav>
 
-		<div ng-view></div>
+		<div ui-view="body" layout="column" layout-fill tabindex="-1" role="main"></div>
 
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 		 <script>

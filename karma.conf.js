@@ -18,7 +18,7 @@ module.exports = function(config) {
       {pattern: 'public/vendor/angular-cookies/angular-cookies.js', included: false },
       {pattern: 'public/vendor/angular-messages/angular-messages.js', included: false },
       {pattern: 'public/vendor/angular-resource/angular-resource.js', included: false },
-      {pattern: 'public/vendor/angular-route/angular-route.js', included: false },
+      {pattern: 'public/vendor/angular-ui-router/release/angular-ui-router.min.js', included: false },
       {pattern: 'public/vendor/angular-sanitize/angular-sanitize.js', included: false },
       {pattern: 'public/vendor/angular-touch/angular-touch.js', included: false },
       {pattern: 'public/scripts/*.js', included: false },

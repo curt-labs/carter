@@ -5,7 +5,7 @@ define(['angular', 'angular-mocks', 'app'], function(angular, mocks, app) {
   describe('Controller: MainCtrl', function () {
 
     // load the controller's module
-    beforeEach(module('ngRequirerApp.controllers.MainCtrl'));
+    beforeEach(module('carter.controllers.MainCtrl'));
 
     var MainCtrl,
       rootScope,
@@ -21,8 +21,5 @@ define(['angular', 'angular-mocks', 'app'], function(angular, mocks, app) {
       });
     }));
 
-    it('should attach a list of awesomeThings to the scope', function () {
-      expect(rootScope.parentCategories.length).toBe(0);
-    });
   });
 });

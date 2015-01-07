@@ -85,3 +85,31 @@ will be recreated with the last template applied before the current update.
 ```shell
 $ gcloud preview managed-instance-groups --zone us-central1-f start-rolling-update carter-group --template carter-template
 ```
+
+#### Jenkins Deployment Server (Optional)
+```shell
+$ export PROJECT_NAME=<project-id>
+$ export JENKINS_PASS=<password>
+$ gcloud compute \
+    instances create bitnami-jenkins \
+    --project $PROJECT_NAME \
+    --image-project bitnami-launchpad \
+    --image bitnami-jenkins-1-587-0-linux-debian-7-x86-64-image \
+    --zone us-central1-a \
+    --machine-type n1-standard-1 \
+    --metadata "bitnami-base-password=${JENKINS_PASS}" \
+               "bitnami-default-user=user" \
+               "bitnami-key=jenkins" \
+               "bitnami-name=Jenkins" \
+               "bitnami-version=1-587-0" \
+               "bitnami-url=//bitnami.com/stack/jenkins" \
+               "bitnami-description=Jenkins." \
+               "startup-script-url=http://storage.googleapis.com/jenkins-scripts/jenkins_start.sh" \
+    --scopes "https://www.googleapis.com/auth/userinfo.email" \
+             "https://www.googleapis.com/auth/devstorage.full_control" \
+             "https://www.googleapis.com/auth/projecthosting" \
+             "https://www.googleapis.com/auth/appengine.admin" \
+             "https://www.googleapis.com/auth/compute" \
+             "https://www.googleapis.com/auth/cloud-platform" \
+    --tags "bitnami-launchpad"
+```

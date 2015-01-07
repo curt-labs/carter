@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/codegangsta/negroni"
-	"github.com/squiidz/bone"
+	"github.com/go-zoo/bone"
 	"github.com/unrolled/render"
 	"net/http"
 	"os"
@@ -32,7 +32,7 @@ func main() {
 	}))
 
 	mux.Handle("/", http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
-		r.HTML(w, 500, "index", nil)
+		r.HTML(w, 200, "index", nil)
 	}))
 
 	mux.Handle("/build/", http.StripPrefix("/build/", http.FileServer(http.Dir("build"))))

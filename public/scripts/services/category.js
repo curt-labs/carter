@@ -3,12 +3,12 @@ define(['angular'], function (angular) {
 
 	/**
 	 * @ngdoc service
-	 * @name ngRequirerApp.Category
+	 * @name carter.Category
 	 * @description
 	 * # Category
-	 * Factory in the ngRequirerApp.
+	 * Factory in the carter.
 	 */
-	angular.module('ngRequirerApp.services.Category', ['ngResource'])
+	angular.module('carter.services.Category', ['ngResource'])
 		.factory('Category', function ($resource) {
 			var base = 'http://goapi.curtmfg.com';
 			return $resource(base + '/category/:id', {
@@ -18,6 +18,11 @@ define(['angular'], function (angular) {
 					method: 'GET',
 					isArray: true,
 					url: base + '/category',
+					responseType: 'json'
+				},
+				get: {
+					method: 'GET',
+					isArray: false,
 					responseType: 'json'
 				}
 			});

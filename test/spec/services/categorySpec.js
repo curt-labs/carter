@@ -5,7 +5,7 @@ define(['angular', 'angular-mocks', 'angular-resource', 'app'], function(angular
   describe('Service: Category', function () {
 
     // load the service's module
-    beforeEach(module('ngRequirerApp.services.Category'));
+    beforeEach(module('carter.services.Category'));
 
     // instantiate service
     var Category;

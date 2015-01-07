@@ -1,42 +1,56 @@
 /*jshint unused: vars */
-define(['angular', 'controllers/main', 'controllers/about', 'services/category']/*deps*/, function (angular, MainCtrl, AboutCtrl, CategoryFactory)/*invoke*/ {
+define(['angular', 'hammer', 'controllers/main', 'services/category', 'controllers/category']/*deps*/, function (angular, MainCtrl, CategoryFactory, CategoryCtrl)/*invoke*/ {
 	'use strict';
 
 	/**
 	 * @ngdoc overview
-	 * @name ngRequirerApp
+	 * @name carter
 	 * @description
-	 * # ngRequirerApp
+	 * # carter
 	 *
 	 * Main module of the application.
 	 */
 	return angular
-		.module('ngRequirerApp', ['ngRequirerApp.controllers.MainCtrl',
-'ngRequirerApp.controllers.AboutCtrl',
-'ngRequirerApp.services.Category',
+		.module('carter', ['carter.controllers.MainCtrl',
+'carter.services.Category',
+'carter.controllers.CategoryCtrl',
 /*angJSDeps*/
 		'ngCookies',
 		'ngAria',
 		'ngMessages',
 		'ngResource',
 		'ngSanitize',
-		'ngRoute',
 		'ngAnimate',
-		'ngTouch'
-	]).config(function ($routeProvider, $interpolateProvider) {
+		'ngTouch',
+		'ui.router',
+		'ngMaterial'
+	]).config(function ($interpolateProvider, $locationProvider, $urlRouterProvider, $stateProvider) {
+
 		$interpolateProvider.startSymbol('[[');
 		$interpolateProvider.endSymbol(']]');
-		$routeProvider
-			.when('/', {
-				templateUrl: 'views/main.html',
-				controller: 'MainCtrl'
-			})
-			.when('/about', {
-				templateUrl: 'views/about.html',
-				controller: 'AboutCtrl'
-			})
-			.otherwise({
-				redirectTo: '/'
-			});
-	});
+		// $locationProvider.html5Mode(true);
+		$stateProvider.state({
+			name:'home',
+			url: '/',
+			views:{
+				'body':{
+					templateUrl:'/views/main.html',
+					controller:'MainCtrl'
+				}
+			}
+		});
+		$stateProvider.state({
+			name:'category',
+			url: '/category/:id',
+			views:{
+				'body':{
+					templateUrl:'/views/category.html',
+					controller:'CategoryCtrl'
+				}
+			}
+		});
+		$urlRouterProvider.otherwise('/');
+	}).controller('AppController',['$rootScope','Category',function($rootScope, Category){
+		$rootScope.parentCategories = Category.parents({'key':'9300f7bc-2ca6-11e4-8758-42010af0fd79'});
+	}]);
 });
