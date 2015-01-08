@@ -24,8 +24,7 @@ define(['angular', 'hammer', 'controllers/main', 'services/category', 'controlle
 		'ngTouch',
 		'ui.router',
 		'ngMaterial'
-	]).config(function ($interpolateProvider, $locationProvider, $urlRouterProvider, $stateProvider) {
-
+	]).config(function ($mdThemingProvider, $interpolateProvider, $locationProvider, $urlRouterProvider, $stateProvider) {
 		$interpolateProvider.startSymbol('[[');
 		$interpolateProvider.endSymbol(']]');
 		// $locationProvider.html5Mode(true);
@@ -50,7 +49,13 @@ define(['angular', 'hammer', 'controllers/main', 'services/category', 'controlle
 			}
 		});
 		$urlRouterProvider.otherwise('/');
-	}).controller('AppController',['$rootScope','Category',function($rootScope, Category){
+
+		$mdThemingProvider.theme('default').primaryColor('grey').accentColor('deep-orange').warnColor('deep-orange');
+	}).controller('AppController',['$rootScope', '$location','Category',function($rootScope, $location, Category){
 		$rootScope.parentCategories = Category.parents({'key':'9300f7bc-2ca6-11e4-8758-42010af0fd79'});
+
+		$rootScope.goTo = function(path){
+			$location.path(path);
+		};
 	}]);
 });

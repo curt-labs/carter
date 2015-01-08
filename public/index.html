@@ -6,7 +6,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title></title>
 		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes"
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 		<!-- build:css(.) styles/vendor.css -->
 		<!-- bower:css -->
@@ -16,14 +16,18 @@
 		<!-- build:css(.tmp) styles/main.css -->
 		<link rel="stylesheet" href="styles/css/main.css">
 		<!-- endbuild -->
+
+		<script src="/vendor/webcomponentsjs/webcomponents.min.js"></script>
+		<link rel="import" href="views/elements/lookup-element.html">
+
 	</head>
-	<body ng-controller="AppController" layout="row" ng-cloak>
+	<body ng-controller="AppController" layout="row" ng-cloak unresolved>
 		<!--[if lt IE 7]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 
 		<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2 md-closed ng-isolate-scope md-locked-open" md-component-id="left" md-is-locked-open="$media('gt-sm')" tabindex="-1">
-			<md-toolbar style="min-height: 64px; max-height:64px;" layout="column" class="md-blue-theme">
+			<md-toolbar style="min-height: 64px; max-height:64px;" layout="column">
 				<h1 class="md-toolbar-tools" flex="" layout="column">
 					<a ng-href="#/" ng-click="goHome()" layout="row" flex="" tabindex="0">
 						<svg version="1.1"xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 120 120" enable-background="new 0 0 120 120" xml:space="preserve" style="width: 40px; height: 40px;">
@@ -52,20 +56,42 @@
 				</h1>
 			</md-toolbar>
 
-			<md-content flex style="overflow: auto;" class="md-default-theme md-padding">
+			<md-content flex style="overflow: auto;" class="md-padding">
 				<md-list role="list" hide-md show-gt-md>
-					<md-item ng-repeat="cat in parentCategories | orderBy:'sort'" class="ng-scope" role="listitem">
+					<md-item ng-repeat="cat in parentCategories | orderBy:'sort'" role="listitem">
 						<md-item-content>
 							<div class="md-tile-content">
-								<h3 class="ng-binding">[[cat.title]]</h3>
+								<h3 class="ng-binding" ng-click="goTo('/category/[[cat.id]]')">[[cat.title]]</h3>
 							</div>
 						</md-item-content>
 					</md-item><!-- end ngRepeat: item in todos -->
+
 				</md-list>
 			</md-content>
 		</md-sidenav>
 
-		<div ui-view="body" layout="column" layout-fill tabindex="-1" role="main"></div>
+		<div layout="column" layout-fill tabindex="-1" role="main">
+			<md-toolbar layout="column">
+				<div class="md-toolbar-tools" flex layout="column" tabindex="0">
+					<div layout="row">
+						<span ng-repeat="(i,crumb) in crumbs">
+							<a href="[[crumb.path]]">[[crumb.name]]</a>
+							<span ng-if="i !== (crumbs.length -1)">&gt;</span>
+						</span>
+					</div>
+				</div>
+			</md-toolbar>
+
+			<md-toolbar layout="column" class="lookup-toolbar">
+				<div class="md-toolbar-tools" flex layout="column" tabindex="0">
+					<div layout="row">
+						<lookup-element></lookup-element>
+					</div>
+				</div>
+			</md-toolbar>
+
+			<div ui-view="body"></div>
+		</div>
 
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 		 <script>

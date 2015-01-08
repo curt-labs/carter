@@ -9,10 +9,17 @@ define(['angular'], function (angular) {
 	 * Controller of the carterApp
 	 */
 	angular.module('carter.controllers.CategoryCtrl', ['carter.services.Category'])
-		.controller('CategoryCtrl', function ($scope, Category, $stateParams, $sce) {
+		.controller('CategoryCtrl', function ($scope, $rootScope, Category, $stateParams, $sce) {
+			$rootScope.crumbs = [{
+				path: '/',
+				name:'Home'
+			}];
 			$scope.category = {};
 			if($stateParams !== undefined || $stateParams.id !== undefined){
-				$scope.category = Category.get({'id': $stateParams.id, 'key':'9300f7bc-2ca6-11e4-8758-42010af0fd79'});
+				Category.get({'id': $stateParams.id, 'key':'9300f7bc-2ca6-11e4-8758-42010af0fd79'}).$promise.then(function(cat){
+					$scope.category = cat;
+					$rootScope.crumbs.push({path:'/category/'+$scope.category.id, name: $scope.category.title});
+				});
 			}
 
 			$scope.renderHTML = function(content){

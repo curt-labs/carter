@@ -9,8 +9,12 @@ define(['angular'], function (angular) {
 	 * Controller of the carter
 	 */
 	angular.module('carter.controllers.MainCtrl', [])
-		.controller('MainCtrl', function ($rootScope, $scope, $location) {
+		.controller('MainCtrl', function ($rootScope, $scope) {
 			$scope.categories = [];
+			$rootScope.crumbs = [{
+				path: '/',
+				name:'Home'
+			}];
 			if($rootScope.parentCategories !== undefined){
 				$scope.categories = $rootScope.parentCategories;
 			}
@@ -20,9 +24,6 @@ define(['angular'], function (angular) {
 					return cat.image.Scheme + '://' + cat.image.Host + cat.image.Path;
 				}
 				return '://';
-			};
-			$scope.goTo = function(path){
-				$location.path(path);
 			};
 		});
 });

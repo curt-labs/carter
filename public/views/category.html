@@ -1,12 +1,4 @@
-<md-toolbar layout="column" class="md-blue-theme">
-	<div class="md-toolbar-tools" flex layout="column" tabindex="0">
-		<div layout="row">
-			<span>Home &gt; [[category.title]]</span>
-		</div>
-	</div>
-</md-toolbar>
-
-<md-content md-scroll-y flex class="md-padding md-default-theme category">
+<md-content md-scroll-y flex class="md-padding category">
 	<div layout="column" layout-fill class="body-content">
 		<div class="heading" layout="row" layout-fill>
 			<div class="image md-tile-left">
@@ -17,10 +9,10 @@
 			</div>
 		</div>
 
-		<md-content flex class="md-default-theme">
+		<md-content flex>
 			<md-list role="list">
 
-			<md-card ng-click="goTo('/category/[[cat.id]]')" ng-repeat="part in category.product_listing.parts | orderBy:'id'" class="md-default-theme" touch-action="pan-y">
+			<md-card ng-click="goTo('/category/[[cat.id]]')" ng-repeat="part in category.product_listing.parts | orderBy:'id'" touch-action="pan-y">
 				<md-item-content layout="row">
 					<div flex="40">
 						<img ng-src="[[generatePartImage(part)]]" alt="CURT #[[part.id]] - [[part.short_description]]">
