@@ -1,5 +1,5 @@
 /*jshint unused: vars */
-define(['angular', 'hammer', 'controllers/main', 'services/category', 'controllers/category']/*deps*/, function (angular, MainCtrl, CategoryFactory, CategoryCtrl)/*invoke*/ {
+define(['angular', 'hammer', 'controllers/main', 'services/category', 'controllers/category', 'controllers/login']/*deps*/, function (angular, MainCtrl, CategoryFactory, CategoryCtrl, LoginCtrl)/*invoke*/ {
 	'use strict';
 
 	/**
@@ -12,9 +12,10 @@ define(['angular', 'hammer', 'controllers/main', 'services/category', 'controlle
 	 */
 	return angular
 		.module('carter', ['carter.controllers.MainCtrl',
-'carter.services.Category',
-'carter.controllers.CategoryCtrl',
-/*angJSDeps*/
+		'carter.services.Category',
+		'carter.controllers.CategoryCtrl',
+		'carter.controllers.LoginCtrl',
+		/*angJSDeps*/
 		'ngCookies',
 		'ngAria',
 		'ngMessages',
@@ -28,6 +29,11 @@ define(['angular', 'hammer', 'controllers/main', 'services/category', 'controlle
 		$interpolateProvider.startSymbol('[[');
 		$interpolateProvider.endSymbol(']]');
 		// $locationProvider.html5Mode(true);
+
+		var loginState = {
+			templateUrl: '/views/login.html',
+			controller: 'LoginCtrl'
+		};
 		$stateProvider.state({
 			name:'home',
 			url: '/',
@@ -35,7 +41,8 @@ define(['angular', 'hammer', 'controllers/main', 'services/category', 'controlle
 				'body':{
 					templateUrl:'/views/main.html',
 					controller:'MainCtrl'
-				}
+				},
+				'login':loginState
 			}
 		});
 		$stateProvider.state({
@@ -45,7 +52,8 @@ define(['angular', 'hammer', 'controllers/main', 'services/category', 'controlle
 				'body':{
 					templateUrl:'/views/category.html',
 					controller:'CategoryCtrl'
-				}
+				},
+				'login':loginState
 			}
 		});
 		$urlRouterProvider.otherwise('/');

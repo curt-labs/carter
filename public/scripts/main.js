@@ -14,7 +14,8 @@ require.config({
 		'angular-touch': '../vendor/angular-touch/angular-touch',
 		'ui.router': '../vendor/angular-ui-router/release/angular-ui-router.min',
 		'hammer': '../vendor/hammerjs/hammer.min',
-		'hammerProxy':'hammer-proxy'
+		'hammerProxy':'hammer-proxy',
+		'ngPolymer': '../vendor/ng-polymer-elements/ng-polymer-elements.min'
 	},
 	shim: {
 		angular: {
@@ -61,7 +62,10 @@ require.config({
 				'angular'
 			],
 			exports: 'angular.mock'
-		}
+		},
+		'ngPolymer':[
+			'angular'
+		]
 	},
 	priority: [
 		'angular'
@@ -85,6 +89,7 @@ require([
 	'angular-material',
 	'angular-messages',
 	'angular-touch',
+	'ngPolymer',
 	'ui.router'
 ], function(angular, app, ngAria, ngCookies, ngSanitize, ngResource, ngAnimate, hammer, ngMaterial, ngMessages, ngTouch) {
 	'use strict';

@@ -73,11 +73,15 @@
 		<div layout="column" layout-fill tabindex="-1" role="main">
 			<md-toolbar layout="column">
 				<div class="md-toolbar-tools" flex layout="column" tabindex="0">
-					<div layout="row">
-						<span ng-repeat="(i,crumb) in crumbs">
-							<a href="[[crumb.path]]">[[crumb.name]]</a>
-							<span ng-if="i !== (crumbs.length -1)">&gt;</span>
-						</span>
+					<div layout="row" layout-fill layout-align="space-between center">
+						<div class="crumbs">
+							<span ng-repeat="(i,crumb) in crumbs">
+								<a href="[[crumb.path]]">[[crumb.name]]</a>
+								<span ng-if="i !== (crumbs.length -1)">&gt;</span>
+							</span>
+						</div>
+
+						<div ui-view="login"></div>
 					</div>
 				</div>
 			</md-toolbar>

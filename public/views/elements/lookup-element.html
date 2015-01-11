@@ -18,12 +18,10 @@
 		<!-- year -->
 		<paper-dropdown-menu label="Year">
 			<paper-dropdown class="dropdown">
-				<core-menu class="menu">
+				<core-menu ng-model="vehicle.year" class="menu">
 					<template repeat="{{year in years}}">
-						<paper-item>{{year}}</paper-item>
+						<paper-item name="{{year}}">{{year}}</paper-item>
 					</template>
-
-
 				</core-menu>
 			</paper-dropdown>
 		</paper-dropdown-menu>
