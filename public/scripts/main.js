@@ -15,7 +15,11 @@ require.config({
 		'ui.router': '../vendor/angular-ui-router/release/angular-ui-router.min',
 		'hammer': '../vendor/hammerjs/hammer.min',
 		'hammerProxy':'hammer-proxy',
-		'ngPolymer': '../vendor/ng-polymer-elements/ng-polymer-elements.min'
+		'ngPolymer': '../vendor/ng-polymer-elements/ng-polymer-elements.min',
+		'bootstrap':'../vendor/bootstrap-sass-official/assets/javascripts/bootstrap',
+		'jquery':'../vendor/jquery/dist/jquery.min',
+		'ui.bootstrap':'../vendor/angular-bootstrap/ui-bootstrap.min',
+		'ngStorage':'../vendor/ngstorage/ngStorage.min'
 	},
 	shim: {
 		angular: {
@@ -65,6 +69,15 @@ require.config({
 		},
 		'ngPolymer':[
 			'angular'
+		],
+		'bootstrap':[
+			'jquery'
+		],
+		'ui.bootstrap':[
+			'angular'
+		],
+		'ngStorage':[
+			'angular'
 		]
 	},
 	priority: [
@@ -90,7 +103,10 @@ require([
 	'angular-messages',
 	'angular-touch',
 	'ngPolymer',
-	'ui.router'
+	'ui.router',
+	'bootstrap',
+	'ui.bootstrap',
+	'ngStorage'
 ], function(angular, app, ngAria, ngCookies, ngSanitize, ngResource, ngAnimate, hammer, ngMaterial, ngMessages, ngTouch) {
 	'use strict';
 	/* jshint ignore:start */

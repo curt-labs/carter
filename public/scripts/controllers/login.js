@@ -10,16 +10,9 @@ define(['angular'], function (angular) {
 	 */
 	angular.module('carter.controllers.LoginCtrl', [])
 		.controller('LoginCtrl', function ($scope) {
-			$scope.vehicle = {};
-
-			$scope.$watchCollection('vehicle',function(newValue, oldValue){
-				console.log(newValue);
-				console.log(oldValue);
-			});
-
-			$scope.updateVehicle = function(r){
-				console.log(r);
+			$scope.authentication = {
+				email: '',
+				password: ''
 			};
-			console.log($scope);
 		});
 });

@@ -1,8 +1,10 @@
 // bower:scss
+@import "../vendor/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
 @import "/vendor/angular-material/angular-material.min.css";
 @import "/vendor/angular-material/themes/blue-theme.css";
+@import "lookup.scss";
 
 .browsehappy {
 	margin: 0.2em 0;

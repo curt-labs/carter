@@ -1,49 +1,29 @@
-<link rel="import" href="../../vendor/polymer/polymer.html">
-<link href="/vendor/core-ajax/core-ajax.html" rel="import">
-<link href="/vendor/core-collapse/core-collapse.html" rel="import">
-<link href="/vendor/core-menu/core-menu.html" rel="import">
-<link href="/vendor/paper-dropdown/paper-dropdown.html" rel="import">
-<link href="/vendor/paper-dropdown-menu/paper-dropdown-menu.html" rel="import">
-<link href="/vendor/paper-item/paper-item.html" rel="import">
+<div class="form-inline">
 
-<polymer-element name="lookup-element" noscript>
-	<template>
+	<!-- year -->
+	<div class="form-group">
+		<select class="form-control" ng-model="vehicle.year">
+			<option value="">- Select Year -</option>
+			<option value="[[year]]" ng-repeat="year in years">[[year]]</option>
+		</select>
+	</div>
 
-		<core-ajax auto
-			url="http://api.curtmfg.com/v2/GetYear?dataType=json"
-			response="{{years}}"
-			handleas="json">
-		</core-ajax>
+	<!-- make -->
+	<div class="form-group">
+		<select class="form-control" ng-model="vehicle.make">
+			<option value="">- Select Make -</option>
+			<option value="[[make]]" ng-repeat="make in makes">[[make]]</option>
+		</select>
+	</div>
 
-		<!-- year -->
-		<paper-dropdown-menu label="Year">
-			<paper-dropdown class="dropdown">
-				<core-menu ng-model="vehicle.year" class="menu">
-					<template repeat="{{year in years}}">
-						<paper-item name="{{year}}">{{year}}</paper-item>
-					</template>
-				</core-menu>
-			</paper-dropdown>
-		</paper-dropdown-menu>
+	<!-- model -->
+	<div class="form-group">
+		<select class="form-control" ng-model="vehicle.model">
+			<option value="">- Select Model -</option>
+			<option value="[[model]]" ng-repeat="model in models">[[model]]</option>
+		</select>
+	</div>
 
-		<!-- make -->
-		<paper-dropdown-menu label="Make" disabled>
-			<paper-dropdown class="dropdown">
-				<core-menu class="menu">
-				</core-menu>
-			</paper-dropdown>
-		</paper-dropdown-menu>
-
-		<!-- model -->
-		<paper-dropdown-menu label="Model" disabled>
-			<paper-dropdown class="dropdown">
-				<core-menu class="menu">
-				</core-menu>
-			</paper-dropdown>
-		</paper-dropdown-menu>
-
-		<!-- submit -->
-		<md-button>Find</md-button>
-
-	</template>
-</polymer-element>
+	<!-- submit -->
+	<a href="#" class="btn btn-primary">Find Products</a>
+</div>

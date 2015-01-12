@@ -1,0 +1,26 @@
+<md-content md-scroll-y flex class="md-padding vehicle_products">
+	<div layout="column" layout-fill class="body-content">
+		<pre>[[vehicle | json]]</pre>
+	</div>
+</md-content>
+
+<md-content flex md-scroll-y flex class="md-padding">
+	<div class="body-content" layout="column">
+		<md-list role="list">
+			<md-card ng-click="goTo('/product/[[part.id]]')" ng-repeat="part in parts | orderBy:'id'" touch-action="pan-y">
+				<md-item-content layout="row">
+					<div flex="40">
+						<img ng-src="[[generatePartImage(part)]]" alt="CURT #[[part.id]] - [[part.short_description]]">
+					</div>
+					<div flex="40" hide-sm>
+						<h2>CURT #[[part.id]] - [[part.short_description]]</h2>
+					</div>
+					<div flex="20">
+						<p>[[getPartPrice(part)]]</p>
+						<md-button ng-click="addToCart(part)" class="md-raised md-warn">Add to Cart</md-button>
+					</div>
+				</md-item-content>
+			</md-card><!-- end ngRepeat: item in todos -->
+		</md-list>
+	</div>
+	</md-content>

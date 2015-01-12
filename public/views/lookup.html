@@ -1,0 +1,56 @@
+<div class="form-inline" ng-if="defined_vehicle === undefined">
+
+	<!-- year -->
+	<div class="form-group" flex>
+		<select class="form-control" integer ng-model="vehicle.base.year">
+			<option value="0">- Select Year -</option>
+			<option value="[[year.value]]" ng-selected="year.selected" ng-repeat="year in years">[[year.value]]</option>
+		</select>
+	</div>
+
+	<!-- make -->
+	<div class="form-group" flex>
+		<select class="form-control" ng-model="vehicle.base.make" ng-disabled="vehicle.base.year < 1">
+			<option value="">- Select Make -</option>
+			<option value="[[make.value]]" ng-selected="make.selected" ng-repeat="make in makes">[[make.value]]</option>
+		</select>
+	</div>
+
+	<!-- model -->
+	<div class="form-group" flex>
+		<select class="form-control" ng-model="vehicle.base.model" ng-disabled="vehicle.base.make === ''">
+			<option value="">- Select Model -</option>
+			<option value="[[model.value]]" ng-selected="model.selected" ng-repeat="model in models">[[model.value]]</option>
+		</select>
+	</div>
+
+	<!-- submodel -->
+	<div class="form-group" ng-if="submodels.length > 0" flex ng-disabled="vehicle.base.model === ''">
+		<select class="form-control" ng-model="vehicle.submodel">
+			<option value="">- Select Submodel -</option>
+			<option value="[[submodel.value]]" ng-selected="submodel.selected" ng-repeat="submodel in submodels">[[submodel.value]]</option>
+		</select>
+	</div>
+
+	<!-- configurations -->
+	<div class="form-group" flex ng-repeat="(i,config) in configurations" ng-if="configurations.length > 0">
+		<select class="form-control" ng-model="vehicle.configurations[i].value">
+			<option value="">- Select [[config.type]] -</option>
+			<option value="[[option.value]]" ng-selected="option.selected" ng-repeat="option in config.options">[[option.value]]</option>
+		</select>
+	</div>
+
+	<!-- submit -->
+	<a href="#" class="btn btn-primary" ng-click="queryVehicle()" ng-disabled="canQueryVehicle()">Find Products</a>
+</div>
+
+<div ng-if="defined_vehicle">
+	<span class="title">Your Vehicle: </span>
+	<a ng-href="generateVehicleLink(defined_vehicle)">
+		<span class="year">[[defined_vehicle.base.year]]</span>
+		<span class="make">[[defined_vehicle.base.make]]</span>
+		<span class="model">[[defined_vehicle.base.model]]</span>
+		<span class="submodel" ng-if="defined_vehicle.submodel">[[defined_vehicle.submodel]]</span>
+		<span class="config" ng-repeat="config in defined_vehicle.configurations">[[config.value]]</span>
+	</a>
+</div>
