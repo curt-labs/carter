@@ -46,7 +46,7 @@
 
 <div ng-if="defined_vehicle">
 	<span class="title">Your Vehicle: </span>
-	<a ng-href="generateVehicleLink(defined_vehicle)">
+	<a ng-href="[[generateVehicleLink(defined_vehicle)]]">
 		<span class="year">[[defined_vehicle.base.year]]</span>
 		<span class="make">[[defined_vehicle.base.make]]</span>
 		<span class="model">[[defined_vehicle.base.model]]</span>
