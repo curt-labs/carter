@@ -9,7 +9,7 @@
 			</div>
 		</div>
 
-		<md-content flex>
+		<div class="body-content" layout="column" layout-fill>
 			<md-list role="list">
 
 			<md-card ng-click="goTo('/category/[[cat.id]]')" ng-repeat="part in category.product_listing.parts | orderBy:'id'" touch-action="pan-y">
@@ -28,6 +28,10 @@
 			</md-card><!-- end ngRepeat: item in todos -->
 
 			</md-list>
-		</md-content>
+		</div>
+	</div>
+
+	<div layout="column" layout-fill class="body-content">
+		<pre>[[category | json]]</pre>
 	</div>
 </md-content>

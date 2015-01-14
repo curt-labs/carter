@@ -1,10 +1,15 @@
-<link rel="import" href="/vendor/paper-input/paper-autogrow-textarea.html">
-<link rel="import" href="/vendor/paper-input/paper-input-decorator.html">
-<link rel="import" href="/vendor/paper-input/paper-input.html">
-<link rel="import" href="/vendor/paper-button/paper-button.html"></link>
-
-<div>
-	<paper-input class="md-grey-theme" label="email"></paper-input>
-	<paper-input type="password" label="password"></paper-input>
-	<paper-button raised role="button" class="md-blue-theme">Login</paper-button>
+<div class="form-inline" role="form">
+	<!-- email -->
+	<div class="form-group">
+		<label for="login_email" class="sr-only">E-Mail Address</label>
+		<input type="email" id="login_email" class="form-control" placeholder="Email" ng-model="auth.email">
+	</div>
+	<!-- password -->
+	<div class="form-group">
+		<label for="login_pass" class="sr-only">Password</label>
+		<input type="password" id="login_pass" class="form-control" placeholder="Password" ng-model="auth.password">
+	</div>
+	<button class="btn btn-primary" ng-click="login()">Sign in</button>
+	<span class="divider"></span>
+	<a href="/account/new">Create Account</a>
 </div>

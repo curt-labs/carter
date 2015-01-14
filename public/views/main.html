@@ -1,22 +1,25 @@
 <md-content md-scroll-y flex class="md-padding">
 	<div layout="column" layout-fill class="body-content">
+		<md-list role="list">
 
-		<md-content flex>
-			<md-list role="list">
+		<md-card ng-click="goTo('/category/[[cat.id]]')" ng-repeat="cat in categories | orderBy:'sort'" touch-action="pan-y">
+			<md-item-content>
+				<div class="md-tile-left">
+					<img ng-src="[[generateCategoryImage(cat)]]" alt="[[cat.title]]">
+				</div>
+				<div class="md-tile-content">
+					<h2>[[cat.title]]</h2>
+					<p>[[cat.short_description]]</p>
+				</div>
+			</md-item-content>
+		</md-card><!-- end ngRepeat: item in todos -->
 
-			<md-card ng-click="goTo('/category/[[cat.id]]')" ng-repeat="cat in categories | orderBy:'sort'" touch-action="pan-y">
-				<md-item-content>
-					<div class="md-tile-left">
-						<img ng-src="[[generateCategoryImage(cat)]]" alt="[[cat.title]]">
-					</div>
-					<div class="md-tile-content">
-						<h2>[[cat.title]]</h2>
-						<p>[[cat.short_description]]</p>
-					</div>
-				</md-item-content>
-			</md-card><!-- end ngRepeat: item in todos -->
+		</md-list>
+	</div>
+</md-content>
 
-			</md-list>
-		</md-content>
+<md-content md-scroll-y flex class="md-padding vehicle_products" ng-if="categories[0]">
+	<div layout="column" layout-fill class="body-content">
+		<pre>[[categories[0] | json]]</pre>
 	</div>
 </md-content>

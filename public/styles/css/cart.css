@@ -1,0 +1,15 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/cart\.scss}line{font-family:\000032}}
+.cart-container .cart-details {
+  display: none;
+  position: absolute;
+  top: 64px;
+  z-index: 4;
+  left: 0;
+  height: 100%;
+  background: blue;
+  width: 100%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/cart\.scss}line{font-family:\0000314}}
+.cart-container:hover .cart-details {
+  display: block;
+}

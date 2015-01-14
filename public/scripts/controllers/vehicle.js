@@ -26,7 +26,6 @@ define(['angular'], function (angular) {
 							var conf = data.available_configurations[k];
 							for (var j = 0; j < conf.options.length; j++) {
 								var opt = conf.options[j];
-								console.log(opt);
 								if(selections.indexOf(opt) === -1){
 									continue;
 								}

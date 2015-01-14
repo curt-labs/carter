@@ -19,10 +19,11 @@
 		<!-- endbuild -->
 
 		<script src="/vendor/webcomponentsjs/webcomponents.min.js"></script>
-		<link rel="import" href="views/elements/lookup-element.html">
+		<!-- <link rel="import" href="views/elements/lookup-element.html"> -->
+		<link rel="import" href="/vendor/paper-elements/paper-elements.html">
 
 	</head>
-	<body ng-controller="AppController" layout="row" ng-cloak unresolved>
+	<body ng-controller="AppController" layout="vertical" layout-fill ng-cloak unresolved>
 		<!--[if lt IE 7]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
@@ -72,31 +73,43 @@
 		</md-sidenav>
 
 		<div layout="column" layout-fill tabindex="-1" role="main">
-			<md-toolbar layout="column">
-				<div class="md-toolbar-tools" flex layout="column" tabindex="0">
-					<div layout="row" layout-fill layout-align="space-between center">
-						<div class="crumbs">
-							<span ng-repeat="(i,crumb) in crumbs">
-								<a href="[[crumb.path]]">[[crumb.name]]</a>
-								<span ng-if="i !== (crumbs.length -1)">&gt;</span>
-							</span>
-						</div>
+			<div class="main-header">
+				<md-toolbar layout="column">
+					<div class="md-toolbar-tools" flex layout="column" tabindex="0">
+						<div layout="row" layout-fill layout-align="space-between center">
+							<div class="crumbs">
+								<span ng-repeat="(i,crumb) in crumbs">
+									<a href="[[crumb.path]]">[[crumb.name]]</a>
+									<span ng-if="i !== (crumbs.length -1)">&gt;</span>
+								</span>
+							</div>
 
-						<div ui-view="login"></div>
+							<div ui-view="login"></div>
+							<div class="btn" ng-click="toggleCart()">
+								<svg xmlns="http://www.w3.org/2000/svg" style="color:white" width="24" height="24" viewBox="0 0 24 24">
+									<path d="M7 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-6-16v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2h-11.58c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1h-14.79l-.94-2h-3.27zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+									<path d="M0 0h24v24h-24z" fill="none"/>
+								</svg>
+								<span ng-if="cart.items.length > 0">([[cart.items.length || 0]])</span>
+							</div>
+						</div>
 					</div>
+				</md-toolbar>
+			</div>
+
+
+			<!-- lookup -->
+			<md-toolbar layout="column" class="lookup-toolbar">
+				<div layout="row">
+					<div ui-view="lookup" class="lookup"></div>
 				</div>
 			</md-toolbar>
 
-			<md-toolbar layout="column" class="lookup-toolbar">
-				<!-- <div class="md-toolbar-tools" flex layout="column" tabindex="0"> -->
-					<div layout="row">
-						<div ui-view="lookup" class="lookup"></div>
-					</div>
-				<!-- </div> -->
-			</md-toolbar>
-
+			<!-- page body -->
 			<div ui-view="body"></div>
 		</div>
+
+		<div ui-view="cart"></div>
 
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 		 <script>

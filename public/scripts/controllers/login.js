@@ -10,9 +10,13 @@ define(['angular'], function (angular) {
 	 */
 	angular.module('carter.controllers.LoginCtrl', [])
 		.controller('LoginCtrl', function ($scope) {
-			$scope.authentication = {
-				email: '',
+			$scope.auth = {
+				email: 'hi',
 				password: ''
+			};
+
+			$scope.login = function(){
+
 			};
 		});
 });

@@ -1,8 +1,14 @@
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/lookup\.scss}line{font-family:\000031}}
-.lookup {
+md-toolbar.lookup-toolbar {
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  margin-top: 60px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/lookup\.scss}line{font-family:\000036}}
+md-toolbar.lookup-toolbar .lookup {
   padding: 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/lookup\.scss}line{font-family:\000034}}
-.lookup .form-group {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/lookup\.scss}line{font-family:\000039}}
+md-toolbar.lookup-toolbar .lookup .form-group {
   margin-bottom: 10px;
 }

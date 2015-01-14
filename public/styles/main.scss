@@ -5,6 +5,7 @@
 @import "/vendor/angular-material/angular-material.min.css";
 @import "/vendor/angular-material/themes/blue-theme.css";
 @import "lookup.scss";
+@import "cart.scss";
 
 .browsehappy {
 	margin: 0.2em 0;
@@ -19,9 +20,8 @@ body{
 		margin:auto;
 	}
 
-	.lookup-toolbar{
-		background-color: #fff;
-		box-shadow: 0 2px 6px rgba(0,0,0,.2);
+	.main-header{
+		z-index:3;
 	}
 
 	.category{
