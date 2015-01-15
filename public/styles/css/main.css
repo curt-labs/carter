@@ -8162,19 +8162,18 @@ md-toolbar.lookup-toolbar .lookup .form-group {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/cart\.scss}line{font-family:\000032}}
-.cart-container .cart-details {
-  display: none;
-  position: absolute;
-  top: 64px;
-  z-index: 4;
-  left: 0;
-  height: 100%;
-  background: blue;
-  width: 100%;
+.items .product-image {
+  width: 50px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/cart\.scss}line{font-family:\0000314}}
-.cart-container:hover .cart-details {
-  display: block;
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/cart\.scss}line{font-family:\000035}}
+.items .qty {
+  padding: 0 3px;
+  width: 25px;
+  display: inline-block;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/cart\.scss}line{font-family:\0000310}}
+.items .close {
+  float: none;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000310}}

@@ -9,7 +9,7 @@ define(['angular'], function (angular) {
 	 * Controller of the carter
 	 */
 	angular.module('carter.controllers.VehicleCtrl', [])
-		.controller('VehicleCtrl', function ($scope, $stateParams, Vehicle) {
+		.controller('VehicleCtrl', function ($scope, $stateParams, Vehicle, Cart) {
 
 			var bindFromParams = function(){
 				Vehicle.save({'key':'9300f7bc-2ca6-11e4-8758-42010af0fd79'},$scope.vehicle).$promise.then(function(data){
@@ -99,6 +99,11 @@ define(['angular'], function (angular) {
 					img = part.images[0];
 					return img.path.Scheme +'://'+img.path.Host+img.path.Path;
 				}
+			};
+
+			$scope.addToCart = function(part){
+				Cart.addItem(part);
+				return false;
 			};
 
 
