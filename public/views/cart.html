@@ -22,7 +22,7 @@
 					<div flex="20">
 						<span class="price">[[getPartPrice(item.product)]]</span>
 						<span>x</span>
-						<input type="text" class="form-control qty" ng-model="item.quantity" value="[[item.quantity]]">
+						<input type="text" class="form-control qty" integer ng-change="updateQuantity(item)" ng-model-onblur ng-model="item.quantity" value="[[item.quantity]]">
 						<button type="button" class="close" aria-label="Close" ng-click="removeItem(item)"><span aria-hidden="true">&times;</span></button>
 					</div>
 				</md-item-content>

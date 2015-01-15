@@ -21,6 +21,8 @@ module.exports = function(config) {
       {pattern: 'public/vendor/angular-ui-router/release/angular-ui-router.min.js', included: false },
       {pattern: 'public/vendor/angular-sanitize/angular-sanitize.js', included: false },
       {pattern: 'public/vendor/angular-touch/angular-touch.js', included: false },
+      {pattern: 'public/vendor/ngstorage/ngStorage.min.js', included: false },
+      {pattern: 'public/vendor/hammerjs/hammer.js', included: false },
       {pattern: 'public/scripts/*.js', included: false },
       {pattern: 'public/scripts/**/*.js', included: false },
       {pattern: 'test/spec/**/*.js', included: false },

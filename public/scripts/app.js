@@ -1,5 +1,5 @@
 /*jshint unused: vars */
-define(['angular', 'hammer', 'controllers/main', 'services/category', 'controllers/category', 'controllers/login', 'controllers/lookup', 'services/vehicle', 'directives/integerselect', 'controllers/vehicle', 'controllers/cart', 'services/cart']/*deps*/, function (angular, MainCtrl, CategoryFactory, CategoryCtrl, LoginCtrl, LookupCtrl, VehicleFactory, IntegerSelectDirective, VehicleCtrl, CartCtrl, CartService)/*invoke*/ {
+define(['angular', 'hammer', 'controllers/main', 'services/category', 'controllers/category', 'controllers/login', 'controllers/lookup', 'services/vehicle', 'directives/integerselect', 'controllers/vehicle', 'controllers/cart', 'services/cart', 'directives/ngmodelonblur']/*deps*/, function (angular, MainCtrl, CategoryFactory, CategoryCtrl, LoginCtrl, LookupCtrl, VehicleFactory, IntegerSelectDirective, VehicleCtrl, CartCtrl, CartService, NgModelOnblurDirective)/*invoke*/ {
 	'use strict';
 
 	/**
@@ -21,6 +21,7 @@ define(['angular', 'hammer', 'controllers/main', 'services/category', 'controlle
 		'carter.controllers.VehicleCtrl',
 		'carter.controllers.CartCtrl',
 		'carter.services.Cart',
+		'carter.directives.NgModelOnblur',
 /*angJSDeps*/
 		'ngCookies',
 		'ngAria',

@@ -52,5 +52,11 @@ define(['angular'], function (angular) {
 					Cart.removeItem(item);
 				});
 			};
+			$scope.updateQuantity = function(item){
+				if(item.quantity === 0){
+					$scope.removeItem(item);
+					return;
+				}
+			};
 		});
 });

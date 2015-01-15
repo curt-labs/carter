@@ -25,7 +25,8 @@ requirejs.config({
 		'angular-scenario': '../vendor/angular-scenario/angular-scenario',
 		'angular-touch': '../vendor/angular-touch/angular-touch',
 		'angular-ui-router': '../vendor/angular-ui-router/release/angular-ui-router',
-		hammer: '../vendor/hammerjs/hammer'
+		'ngStorage': '../vendor/ngstorage/ngStorage.min',
+		'hammer': '../vendor/hammerjs/hammer'
 	},
 
 		shim: {
@@ -36,6 +37,7 @@ requirejs.config({
 				'angular-resource': ['angular'],
 				'angular-animate': ['angular'],
 				'angular-touch': ['angular'],
+				'ngStorage':['angular'],
 				'angular-mocks': {
 					deps:['angular'],
 					'exports':'angular.mock'
