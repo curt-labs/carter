@@ -14,7 +14,6 @@ define(['angular'], function (angular) {
 				require: 'ngModel',
 				priority: 1, // needed for angular 1.2.x
 				link: function(scope, elm, attr, ngModelCtrl) {
-					console.log(elm);
 					if (attr.type === 'radio' || attr.type === 'checkbox') {
 						return;
 					}

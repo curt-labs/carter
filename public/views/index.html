@@ -23,12 +23,12 @@
 		<link rel="import" href="/vendor/paper-elements/paper-elements.html">
 
 	</head>
-	<body ng-controller="AppController" layout="vertical" layout-fill ng-cloak unresolved>
+	<body ng-controller="AppController" layout="row" ng-cloak>
 		<!--[if lt IE 7]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 
-		<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2 md-closed ng-isolate-scope md-locked-open" md-component-id="left" md-is-locked-open="$media('gt-sm')" tabindex="-1">
+		<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2 md-locked-open" md-component-id="left" md-is-locked-open="$media('gt-sm')" tabindex="-1">
 			<md-toolbar style="min-height: 64px; max-height:64px;" layout="column">
 				<h1 class="md-toolbar-tools" flex="" layout="column">
 					<a ng-href="#/" ng-click="goHome()" layout="row" flex="" tabindex="0">
@@ -105,8 +105,10 @@
 				</div>
 			</md-toolbar>
 
-			<!-- page body -->
-			<div ui-view="body"></div>
+			<md-content md-scroll-y flex>
+				<!-- page body -->
+				<div ui-view="body"></div>
+			</md-content>
 		</div>
 
 		<div ui-view="cart"></div>

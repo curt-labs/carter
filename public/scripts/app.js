@@ -1,5 +1,5 @@
 /*jshint unused: vars */
-define(['angular', 'hammer', 'controllers/main', 'services/category', 'controllers/category', 'controllers/login', 'controllers/lookup', 'services/vehicle', 'directives/integerselect', 'controllers/vehicle', 'controllers/cart', 'services/cart', 'directives/ngmodelonblur']/*deps*/, function (angular, MainCtrl, CategoryFactory, CategoryCtrl, LoginCtrl, LookupCtrl, VehicleFactory, IntegerSelectDirective, VehicleCtrl, CartCtrl, CartService, NgModelOnblurDirective)/*invoke*/ {
+define(['angular', 'hammer', 'controllers/main', 'services/category', 'controllers/category', 'controllers/login', 'controllers/lookup', 'services/vehicle', 'directives/integerselect', 'controllers/vehicle', 'controllers/cart', 'services/cart', 'directives/ngmodelonblur', 'controllers/signup', 'directives/compareto']/*deps*/, function (angular, MainCtrl, CategoryFactory, CategoryCtrl, LoginCtrl, LookupCtrl, VehicleFactory, IntegerSelectDirective, VehicleCtrl, CartCtrl, CartService, NgModelOnblurDirective, SignupCtrl, CompareToDirective)/*invoke*/ {
 	'use strict';
 
 	/**
@@ -22,6 +22,8 @@ define(['angular', 'hammer', 'controllers/main', 'services/category', 'controlle
 		'carter.controllers.CartCtrl',
 		'carter.services.Cart',
 		'carter.directives.NgModelOnblur',
+		'carter.controllers.SignupCtrl',
+		'carter.directives.CompareTo',
 /*angJSDeps*/
 		'ngCookies',
 		'ngAria',
@@ -108,6 +110,19 @@ define(['angular', 'hammer', 'controllers/main', 'services/category', 'controlle
 				'body':{
 					templateUrl:'/views/vehicle.html',
 					controller:'VehicleCtrl'
+				},
+				'login':loginState,
+				'lookup':lookupState,
+				'cart':cartState
+			}
+		});
+		$stateProvider.state({
+			name:'CreateAccount',
+			url: '/account/new',
+			views:{
+				'body':{
+					templateUrl:'/views/account/new.html',
+					controller:'SignupCtrl'
 				},
 				'login':loginState,
 				'lookup':lookupState,
