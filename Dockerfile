@@ -1,48 +1,10 @@
-# FROM google/golang
+FROM golang:1.4
 
-# ADD . /go/src/github.com/ninnemana/carter
-
-# WORKDIR /go/src/github.com/ninnemana/carter
-
-# RUN go get github.com/ninnemana/carter
-
-# RUN go install github.com/ninnemana/carter
-
-# ENTRYPOINT /go/bin/carter
-
-# EXPOSE 8080
-
-FROM ubuntu:12.04
-
-# env vars
-ENV HOME /home/deployer
-ENV GOPATH /home/deployer/go
-ENV GOOS linux
-ENV GOARCH amd64
-ENV CGO_ENABLED 0
-ENV PATH /usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
-
-RUN mkdir -p /home/deployer/gosrc
-RUN echo 'GOPATH=/home/deployer/gosrc' >> ~/.bashrc
-
-# apt
-RUN echo "deb http://mirror.anl.gov/pub/ubuntu precise main universe" >> /etc/apt/sources.list
-RUN apt-get update
-RUN apt-get install -y build-essential mercurial git-core subversion wget default-jre curl
-
-# go 1.2 tarball
-RUN wget -qO- https://go.googlecode.com/files/go1.2.linux-amd64.tar.gz | tar -C /usr/local -xzf -
-
-RUN mkdir -p /home/deployer/logs
-
-WORKDIR /home/deployer/gosrc
 RUN mkdir -p /home/deployer/gosrc/src/github.com/ninnemana/carter
 ADD . /home/deployer/gosrc/src/github.com/ninnemana/carter
 WORKDIR /home/deployer/gosrc/src/github.com/ninnemana/carter
 RUN export GOPATH=/home/deployer/gosrc && go get
 RUN export GOPATH=/home/deployer/gosrc && go build -o carter ./init.go
-
-# RUN ls -l /home/deployer/gosrc/src/github.com/ninnemana/carter
 
 ENTRYPOINT /home/deployer/gosrc/src/github.com/ninnemana/carter/carter
 
