@@ -15,12 +15,15 @@ define(['angular'], function (angular) {
 					otherModelValue: '=compareTo'
 				},
 				link: function(scope, el, attr, ngModel){
-					ngModel.$validators.compareTo = function(modelValue){
-						ngModel.$setValidity('pwmatch',modelValue === scope.otherModelValue.$viewValue);
-					};
 
-					scope.$watch('otherModelValue',function(){
-						ngModel.$validate();
+					ngModel.$parsers.unshift(function(val){
+						var valid = false;
+						if(val){
+							valid = val === scope.otherModelValue.$viewValue;
+							ngModel.$setValidity('pwmatch',valid);
+						}
+
+						return valid ? val : undefined;
 					});
 				}
 			};

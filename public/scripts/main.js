@@ -19,7 +19,8 @@ require.config({
 		'bootstrap':'../vendor/bootstrap-sass-official/assets/javascripts/bootstrap',
 		'jquery':'../vendor/jquery/dist/jquery.min',
 		'ui.bootstrap':'../vendor/angular-bootstrap/ui-bootstrap.min',
-		'ngStorage':'../vendor/ngstorage/ngStorage.min'
+		'ngStorage':'../vendor/ngstorage/ngStorage.min',
+		'LocalStorageModule':'../vendor/angular-local-storage/dist/angular-local-storage.min'
 	},
 	shim: {
 		angular: {
@@ -78,6 +79,9 @@ require.config({
 		],
 		'ngStorage':[
 			'angular'
+		],
+		'LocalStorageModule':[
+			'angular'
 		]
 	},
 	priority: [
@@ -106,7 +110,8 @@ require([
 	'ui.router',
 	'bootstrap',
 	'ui.bootstrap',
-	'ngStorage'
+	'ngStorage',
+	'LocalStorageModule'
 ], function(angular, app, ngAria, ngCookies, ngSanitize, ngResource, ngAnimate, hammer, ngMaterial, ngMessages, ngTouch) {
 	'use strict';
 	/* jshint ignore:start */

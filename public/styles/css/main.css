@@ -372,8 +372,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("/vendor/bootstrap-sass-official/assets/fonts/glyphicons-halflings-regular.eot");
-  src: url("/vendor/bootstrap-sass-official/assets/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("/vendor/bootstrap-sass-official/assets/fonts/glyphicons-halflings-regular.woff") format("woff"), url("/vendor/bootstrap-sass-official/assets/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("/vendor/bootstrap-sass-official/assets/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
+  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot");
+  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/vendor\/bootstrap-sass-official\/assets\/stylesheets\/bootstrap\/_glyphicons\.scss}line{font-family:\0000321}}
 .glyphicon {
@@ -8175,7 +8175,7 @@ md-toolbar.lookup-toolbar .lookup .form-group {
   float: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000311}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000310}}
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -8183,23 +8183,23 @@ md-toolbar.lookup-toolbar .lookup .form-group {
   padding: 0.2em 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000319}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000318}}
 body .body-content {
   max-width: 864px;
   margin: auto;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000326}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000325}}
 body .category .heading .image {
   width: 150px;
   height: 150px;
   margin: 16px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000330}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000329}}
 body .category .heading .image img {
   max-width: 150px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000337}}
 md-card {
   display: block;
   box-sizing: border-box;
@@ -8207,12 +8207,12 @@ md-card {
   margin: 8px;
   padding: 8px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000345}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000344}}
 md-card .md-tile-left img {
   width: 100px;
   margin: 16px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000350}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000349}}
 md-card md-tile-content {
   -webkit-box-flex: 1;
   -webkit-flex: 1;

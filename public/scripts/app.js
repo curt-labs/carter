@@ -1,5 +1,24 @@
 /*jshint unused: vars */
-define(['angular', 'hammer', 'controllers/main', 'services/category', 'controllers/category', 'controllers/login', 'controllers/lookup', 'services/vehicle', 'directives/integerselect', 'controllers/vehicle', 'controllers/cart', 'services/cart', 'directives/ngmodelonblur', 'controllers/signup', 'directives/compareto']/*deps*/, function (angular, MainCtrl, CategoryFactory, CategoryCtrl, LoginCtrl, LookupCtrl, VehicleFactory, IntegerSelectDirective, VehicleCtrl, CartCtrl, CartService, NgModelOnblurDirective, SignupCtrl, CompareToDirective)/*invoke*/ {
+define([
+	'angular',
+	'hammer',
+	'controllers/main',
+	'services/category',
+	'controllers/category',
+	'controllers/login',
+	'controllers/lookup',
+	'services/vehicle',
+	'directives/integerselect',
+	'controllers/vehicle',
+	'controllers/cart',
+	'services/cart',
+	'directives/ngmodelonblur',
+	'controllers/signup',
+	'directives/compareto',
+	'services/customer',
+	'services/authevents',
+	'services/session']/*deps*/,
+	function (angular, MainCtrl, CategoryFactory, CategoryCtrl, LoginCtrl, LookupCtrl, VehicleFactory, IntegerSelectDirective, VehicleCtrl, CartCtrl, CartService, NgModelOnblurDirective, SignupCtrl, CompareToDirective, CustomerService, AuthEventsConstant, SessionService)/*invoke*/ {
 	'use strict';
 
 	/**
@@ -24,6 +43,9 @@ define(['angular', 'hammer', 'controllers/main', 'services/category', 'controlle
 		'carter.directives.NgModelOnblur',
 		'carter.controllers.SignupCtrl',
 		'carter.directives.CompareTo',
+		'carter.services.Customer',
+		'carter.services.AuthEvents',
+		'carter.services.Session',
 /*angJSDeps*/
 		'ngCookies',
 		'ngAria',
@@ -34,10 +56,12 @@ define(['angular', 'hammer', 'controllers/main', 'services/category', 'controlle
 		'ngTouch',
 		'ui.router',
 		'ngMaterial'
-	]).config(function ($mdThemingProvider, $interpolateProvider, $locationProvider, $urlRouterProvider, $stateProvider) {
+	]).config(function ($mdThemingProvider, $interpolateProvider, $locationProvider, $urlRouterProvider, $stateProvider, localStorageServiceProvider) {
 		$interpolateProvider.startSymbol('[[');
 		$interpolateProvider.endSymbol(']]');
 		$locationProvider.html5Mode(true);
+		console.log(localStorageServiceProvider);
+		localStorageServiceProvider.setPrefix('carter');
 
 		var loginState = {
 			templateUrl: '/views/login.html',

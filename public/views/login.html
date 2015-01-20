@@ -1,4 +1,4 @@
-<div class="form-inline" role="form">
+<div class="form-inline" role="form" ng-if="!customer">
 	<!-- email -->
 	<div class="form-group">
 		<label for="login_email" class="sr-only">E-Mail Address</label>
@@ -12,4 +12,9 @@
 	<button class="btn btn-primary" ng-click="login()">Sign in</button>
 	<span class="divider"></span>
 	<a href="/account/new">Create Account</a>
+</div>
+
+<div ng-if="customer">
+	<span class="customer-msg">Hello [[customer.first_name]] [[customer.last_name]]</span>
+	<a href="/logout">Logout</a>
 </div>
