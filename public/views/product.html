@@ -1,0 +1,84 @@
+<md-content md-scroll-y flex class="md-padding category">
+	<div layout="column" layout-fill class="body-content">
+
+		<div class="body-content product" layout="column" layout-fill>
+			<!-- Part Heading -->
+				<div class="heading">
+					<!-- Part Title -->
+					<p class="title pull-left hidden-xs hidden-sm">[[part.short_description]]</p>
+					<p class="title hidden-md hidden-lg">[[part.short_description]]</p>
+
+					<!-- Part Heading Values -->
+					<div class="hidden-xs hidden-sm pull-right values">
+						<span class="class"><strong>Class</strong>: [[part.part_class]]</span>
+						<span class="upc"><strong>UPC</strong>: [[part.upc]]</span>
+					</div>
+				</div>
+
+				<!-- Part Body -->
+				<div class="row">
+
+					<!-- Part Images -->
+					<div class="col-lg-5 col-md-5 images hidden-sm hidden-xs">
+						<img class="partImage" ng-src="[[img]]" ng-click="showImage(i, part, $event)" alt="[[part.short_description]] Image [[i]]" ng-repeat="(i, img) in images" />
+					</div>
+
+					<!-- Desktop View -->
+					<div class="col-lg-6 col-md-6 col-offset-lg-1 body hidden-sm hidden-xs">
+						<div class="actions well">
+							<span class="price">[[getPrice(part)]]</span>
+							<a href="#/part/[[part.id]]" class="btn btn-default">Add to Cart</a>
+							<a href="[[getInstall(part)]]" class="install">
+								<span class="glyphicon glyphicon-wrench"></span>
+								Install Sheet
+							</a>
+							<div class="video" ng-bind-html="getVideo(part)"></div>
+						</div>
+						<!-- Part Content -->
+						<div class="content">
+							<p ng-repeat="con in part.Content">[[con.Value]]</p>
+						</div>
+
+						<!-- Part Attributes -->
+						<table class="attr-table">
+							<tbody>
+								<tr ng-repeat="attr in part.Attributes">
+									<td>[[attr.Key]]</td>
+									<td>[[attr.Value]]</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<!-- Mobile View -->
+					<div class="mb-images images hidden-md hidden-lg">
+						<img class="partImage" ng-src="[[img]]" ng-click="showImage(i, part, $event)" alt="[[part.ShortDesc]] Image [[i]]" ng-repeat="(i, img) in getImages(part, 'Medio')" />
+						<div class="clearfix"></div>
+					</div>
+					<div class="mb-actions hidden-md hidden-lg well row">
+						<div class="col-sm-5 col-xs-5">
+							<span class="price">[[getPrice(part)]]</span>
+						</div>
+						<div class="col-sm-7 col-xs-7">
+							<div class="btn-group">
+								<a href="#/part/[[part.PartId]]" class="btn btn-default">
+									<span class="glyphicon glyphicon-info-sign"></span>
+								</a>
+								<a href="getInstall(part)" class="btn btn-default">
+									<span class="glyphicon glyphicon-wrench"></span>
+								</a>
+								<a href="getVideoLink(part)" class="btn btn-default">
+									<span class="glyphicon glyphicon-play-circle"></span>
+								</a>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+		</div>
+	</div>
+
+	<div layout="column" layout-fill class="body-content">
+		<pre>[[part | json]]</pre>
+	</div>
+</md-content>

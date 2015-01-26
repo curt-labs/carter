@@ -12,7 +12,7 @@
 		<div class="body-content" layout="column" layout-fill>
 			<md-list role="list">
 
-			<md-card ng-click="goTo('/category/[[cat.id]]')" ng-repeat="part in category.product_listing.parts | orderBy:'id'" touch-action="pan-y">
+			<md-card ng-click="goTo('/product/[[part.id]]')" ng-repeat="part in category.product_listing.parts | orderBy:'id'" touch-action="pan-y">
 				<md-item-content layout="row">
 					<div flex="40">
 						<img ng-src="[[generatePartImage(part)]]" alt="CURT #[[part.id]] - [[part.short_description]]">

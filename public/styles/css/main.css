@@ -8175,7 +8175,78 @@ md-toolbar.lookup-toolbar .lookup .form-group {
   float: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000310}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/product\.scss}line{font-family:\000031}}
+.product {
+  margin-bottom: 40px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/product\.scss}line{font-family:\000033}}
+.product .heading {
+  border-bottom: 1px solid #aeaeae;
+  min-height: 55px;
+  padding: 10px 0;
+  clear: both;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/product\.scss}line{font-family:\000038}}
+.product .heading .title {
+  font-weight: bold;
+  font-size: 20px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/product\.scss}line{font-family:\0000312}}
+.product .heading .values {
+  line-height: 40px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/product\.scss}line{font-family:\0000318}}
+.product .images img {
+  width: 25%;
+  float: left;
+  box-shadow: 1px 1px 2px #eaeaea;
+  margin: 5px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/product\.scss}line{font-family:\0000323}}
+.product .images img:first-child {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 1px 1px 6px #e1e1e1;
+  margin: 10px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/product\.scss}line{font-family:\0000332}}
+.product .body {
+  margin-top: 10px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/product\.scss}line{font-family:\0000335}}
+.product .body .actions iframe {
+  margin: 10px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/product\.scss}line{font-family:\0000339}}
+.product .body .content {
+  margin-top: 10px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/product\.scss}line{font-family:\0000341}}
+.product .body .content p {
+  font-size: 12px;
+  padding: 0;
+  margin-bottom: 4px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/product\.scss}line{font-family:\0000347}}
+.product .body .attr-table {
+  width: 100%;
+  box-shadow: -1px 4px 9px #e1e1e1;
+  border: 1px solid #C7C7C7;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/product\.scss}line{font-family:\0000353}}
+.product .body .attr-table tbody tr:nth-child(odd) {
+  background: #e1e1e1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/product\.scss}line{font-family:\0000356}}
+.product .body .attr-table tbody tr:nth-child(even) {
+  background: white;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/product\.scss}line{font-family:\0000359}}
+.product .body .attr-table tbody tr td {
+  padding: 4px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000311}}
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -8183,23 +8254,23 @@ md-toolbar.lookup-toolbar .lookup .form-group {
   padding: 0.2em 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000318}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000319}}
 body .body-content {
   max-width: 864px;
   margin: auto;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000325}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000326}}
 body .category .heading .image {
   width: 150px;
   height: 150px;
   margin: 16px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000329}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000330}}
 body .category .heading .image img {
   max-width: 150px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000337}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000338}}
 md-card {
   display: block;
   box-sizing: border-box;
@@ -8207,12 +8278,12 @@ md-card {
   margin: 8px;
   padding: 8px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000344}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000345}}
 md-card .md-tile-left img {
   width: 100px;
   margin: 16px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000349}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ninnemana\/code\/go\/golibs\/src\/github\.com\/curt-labs\/carter\/public\/styles\/main\.scss}line{font-family:\0000350}}
 md-card md-tile-content {
   -webkit-box-flex: 1;
   -webkit-flex: 1;

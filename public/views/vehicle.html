@@ -7,7 +7,7 @@
 <md-content flex md-scroll-y flex class="md-padding">
 	<div class="body-content" layout="column">
 		<md-list role="list">
-			<md-card ng-repeat="part in parts | orderBy:'id'" touch-action="pan-y">
+			<md-card ng-click="goTo('/product/[[part.id]]')" ng-repeat="part in parts | orderBy:'id'" touch-action="pan-y">
 				<md-item-content layout="row">
 					<div flex="40">
 						<img ng-src="[[generatePartImage(part)]]" alt="CURT #[[part.id]] - [[part.short_description]]">

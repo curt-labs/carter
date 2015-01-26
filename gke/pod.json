@@ -1,0 +1,26 @@
+{
+  "id": "carter-controller",
+  "kind": "ReplicationController",
+  "apiVersion": "v1beta1",
+  "desiredState": {
+    "replicas": 3,
+    "replicaSelector": {"name": "carter"},
+    "podTemplate": {
+      "desiredState": {
+        "manifest": {
+          "version": "v1beta1",
+          "id": "carter-controller",
+          "containers": [{
+            "name": "carter",
+            "image": "gcr.io/curt_cart/carter",
+            "cpu": 100,
+            "memory": 50000000,
+            "ports": [{"name": "http-server", "containerPort": 8080, "hostPort":80}]
+          }]
+        }
+      },
+      "labels": { "name": "carter" }
+    }
+  },
+  "labels": {"name": "carter"}
+}

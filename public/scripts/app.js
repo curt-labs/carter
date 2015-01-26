@@ -17,8 +17,8 @@ define([
 	'directives/compareto',
 	'services/customer',
 	'services/authevents',
-	'services/session']/*deps*/,
-	function (angular, MainCtrl, CategoryFactory, CategoryCtrl, LoginCtrl, LookupCtrl, VehicleFactory, IntegerSelectDirective, VehicleCtrl, CartCtrl, CartService, NgModelOnblurDirective, SignupCtrl, CompareToDirective, CustomerService, AuthEventsConstant, SessionService)/*invoke*/ {
+	'services/session', 'controllers/product', 'services/product']/*deps*/,
+	function (angular, MainCtrl, CategoryFactory, CategoryCtrl, LoginCtrl, LookupCtrl, VehicleFactory, IntegerSelectDirective, VehicleCtrl, CartCtrl, CartService, NgModelOnblurDirective, SignupCtrl, CompareToDirective, CustomerService, AuthEventsConstant, SessionService, ProductCtrl, ProductFactory)/*invoke*/ {
 	'use strict';
 
 	/**
@@ -46,6 +46,8 @@ define([
 		'carter.services.Customer',
 		'carter.services.AuthEvents',
 		'carter.services.Session',
+		'carter.controllers.ProductCtrl',
+		'carter.services.Product',
 /*angJSDeps*/
 		'ngCookies',
 		'ngAria',
@@ -60,7 +62,6 @@ define([
 		$interpolateProvider.startSymbol('[[');
 		$interpolateProvider.endSymbol(']]');
 		$locationProvider.html5Mode(true);
-		console.log(localStorageServiceProvider);
 		localStorageServiceProvider.setPrefix('carter');
 
 		var loginState = {
@@ -95,6 +96,19 @@ define([
 				'body':{
 					templateUrl:'/views/category.html',
 					controller:'CategoryCtrl'
+				},
+				'login':loginState,
+				'lookup':lookupState,
+				'cart':cartState
+			}
+		});
+		$stateProvider.state({
+			name:'product',
+			url: '/product/:id',
+			views:{
+				'body':{
+					templateUrl:'/views/product.html',
+					controller:'ProductCtrl'
 				},
 				'login':loginState,
 				'lookup':lookupState,
