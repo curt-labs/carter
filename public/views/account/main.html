@@ -1,0 +1,53 @@
+<md-content md-scroll-y flex class="md-padding">
+	<div class="page-header">
+		<h1>Your Account</h1>
+	</div>
+
+	<form class="form-horizontal" role="form" name="accountForm" novalidate>
+
+		<div class="panel panel-danger" ng-if="errors.length > 0">
+			<div class="panel-heading">Errors while signing up...</div>
+			<div class="panel-body">
+				<p ng-repeat="err in errors">[[err]]</p>
+			</div>
+		</div>
+		<div class="panel panel-danger" ng-if="accountForm.$submitted && accountForm.$error.required.length > 0">
+			<div class="panel-heading">Errors while signing up...</div>
+			<div class="panel-body">
+				<p ng-if="accountForm.$error.required.length > 0">You did not fill out all required fields.</p>
+			</div>
+		</div>
+
+		<div class="form-group" ng-class="{'has-error':accountForm.fname.$error.required && accountForm.fname.$touched}">
+			<label for="fname" class="control-label col-sm-3">First Name</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="fname" name="fname" placeholder="First name" ng-model="customer.first_name" value="[[customer.first_name]]" required>
+				<span class="help-block" ng-if="accountForm.fname.$error.required && accountForm.fname.$touched">First name is required.</span>
+			</div>
+		</div>
+		<div class="form-group" ng-class="{'has-error':accountForm.lname.$error.required && accountForm.lname.$touched}">
+			<label for="lname" class="control-label col-sm-3">Last Name</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="lname" name="lname" placeholder="Last name" ng-model="customer.last_name" value="[[customer.last-name]]" required>
+				<span class="help-block" ng-if="accountForm.lname.$error.required && accountForm.lname.$touched">Last name is required.</span>
+			</div>
+		</div>
+		<div class="form-group" ng-class="{'has-error':accountForm.email.$error.required && accountForm.email.$touched}">
+			<label for="email" class="control-label col-sm-3">Email</label>
+			<div class="col-sm-6">
+				<input type="email" class="form-control" id="email" name="email" placeholder="Email address" ng-model="customer.email" value="[[customer.email]]" required>
+				<span class="help-block" ng-if="accountForm.email.$error.required && accountForm.email.$touched">Email is required.</span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="accepts_marketing" class="control-label col-sm-3">Receive Announcements</label>
+			<div class="col-sm-6">
+				<md-checkbox ng-model="customer.accepts_marketing" aria-label="Accept Marketing"></md-checkbox>
+			</div>
+		</div>
+
+		<div class="well">
+			<button class="btn btn-primary" ng-click="signup()">Sign up</button>
+		</div>
+	</form>
+</md-content>
