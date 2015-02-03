@@ -16,8 +16,8 @@ define([
 	'directives/compareto',
 	'services/customer',
 	'services/authevents',
-	'services/session', 'controllers/product', 'services/product', 'controllers/logout']/*deps*/,
-	function (angular, MainCtrl, CategoryFactory, CategoryCtrl, LookupCtrl, VehicleFactory, IntegerSelectDirective, VehicleCtrl, CartCtrl, CartService, NgModelOnblurDirective, SignupCtrl, CompareToDirective, CustomerService, AuthEventsConstant, SessionService, ProductCtrl, ProductFactory, LogoutCtrl)/*invoke*/ {
+	'services/session', 'controllers/product', 'services/product', 'controllers/logout', 'controllers/account']/*deps*/,
+	function (angular, MainCtrl, CategoryFactory, CategoryCtrl, LookupCtrl, VehicleFactory, IntegerSelectDirective, VehicleCtrl, CartCtrl, CartService, NgModelOnblurDirective, SignupCtrl, CompareToDirective, CustomerService, AuthEventsConstant, SessionService, ProductCtrl, ProductFactory, LogoutCtrl, AccountCtrl)/*invoke*/ {
 	'use strict';
 
 	/**
@@ -47,6 +47,7 @@ define([
 		'carter.controllers.ProductCtrl',
 		'carter.services.Product',
 		'carter.controllers.LogoutCtrl',
+		'carter.controllers.AccountCtrl',
 /*angJSDeps*/
 		'ngCookies',
 		'ngAria',
@@ -166,6 +167,18 @@ define([
 				'body':{
 					templateUrl:'/views/main.html',
 					controller:'LogoutCtrl'
+				},
+				'lookup':lookupState,
+				'cart':cartState
+			}
+		});
+		$stateProvider.state({
+			name: 'Account Home',
+			url: '/account',
+			views:{
+				'body':{
+					templateUrl:'/views/account/main.html',
+					controller:'AccountCtrl'
 				},
 				'lookup':lookupState,
 				'cart':cartState

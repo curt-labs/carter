@@ -9,7 +9,7 @@ define(['angular'], function (angular) {
 	 * Service in the carter.
 	 */
 	angular.module('carter.services.Customer', ['ngResource'])
-	.factory('Customer', function ($resource) {
+	.factory('Customer', function ($resource, Session) {
 		var base = 'http://goapi.curtmfg.com';
 		return $resource(base + '/shopify/account/:id',{
 			id: '@id'
@@ -32,7 +32,7 @@ define(['angular'], function (angular) {
 				url: base + '/shopify/account',
 				responseType: 'jsonp',
 				headers:{
-					'Authorization': 'Bearer: '+'@token'
+					'Authorization': 'Bearer ' + Session.getToken()
 				}
 			}
 		});

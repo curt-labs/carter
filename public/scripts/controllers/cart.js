@@ -16,25 +16,11 @@ define(['angular'], function (angular) {
 				password: ''
 			};
 
-			var token = Session.getToken();
-			if (token !== ''){
-				$http({
-					method:'GET',
-					url:'http://goapi.curtmfg.com/shopify/account',
-					responseType: 'jsonp',
-					headers:{
-						'Authorization':'Bearer '+token
-					},
-					params:{
-						'shop':'54b963688ff6c70001000001'
-					},
-				}).success(function(data){
-					$scope.customer = data;
-				}).error(function(data){
-					console.log(data);
-				});
-				
-			}
+			Customer.get({'shop':'54b963688ff6c70001000001'}).$promise.then(function(data){
+				$scope.customer = data;
+			},function(){
+				$rootScope.$broadcast(AuthEvents.notAuthenticated);
+			});
 
 			$scope.generatePartImage = function(part){
 				if(part.images === undefined){
