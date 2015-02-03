@@ -11,14 +11,14 @@ define(['angular'], function (angular) {
 	angular.module('carter.services.Session', ['LocalStorageModule'])
 	.service('Session', function (localStorageService) {
 
-		this.storeCustomer = function(cust){
-			localStorageService.set('customer', cust);
+		this.storeToken = function(token){
+			localStorageService.set('token', token);
 		};
-		this.getCustomer = function(){
-			return localStorageService.get('customer');
+		this.getToken = function(){
+			return localStorageService.get('token');
 		};
-		this.destroyCustoemr = function(){
-			localStorageService.delete('customer');
+		this.destroyToken = function(){
+			localStorageService.remove('token');
 		};
 
 		return this;

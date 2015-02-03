@@ -18,12 +18,12 @@ define(['angular'], function (angular) {
 					method: 'GET',
 					isArray: true,
 					url: base + '/category',
-					responseType: 'json'
+					responseType: 'jsonp'
 				},
 				get: {
 					method: 'GET',
 					isArray: false,
-					responseType: 'json'
+					responseType: 'jsonp'
 				}
 			});
 		});

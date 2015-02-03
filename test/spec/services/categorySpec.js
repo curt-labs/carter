@@ -13,9 +13,6 @@ define(['angular', 'angular-mocks', 'angular-resource', 'app'], function(angular
       Category = _Category_;
     }));
 
-    it('should do something', function () {
-      expect(!!Category).toBe(true);
-    });
 
   });
 });

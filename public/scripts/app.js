@@ -5,7 +5,6 @@ define([
 	'controllers/main',
 	'services/category',
 	'controllers/category',
-	'controllers/login',
 	'controllers/lookup',
 	'services/vehicle',
 	'directives/integerselect',
@@ -17,8 +16,8 @@ define([
 	'directives/compareto',
 	'services/customer',
 	'services/authevents',
-	'services/session', 'controllers/product', 'services/product']/*deps*/,
-	function (angular, MainCtrl, CategoryFactory, CategoryCtrl, LoginCtrl, LookupCtrl, VehicleFactory, IntegerSelectDirective, VehicleCtrl, CartCtrl, CartService, NgModelOnblurDirective, SignupCtrl, CompareToDirective, CustomerService, AuthEventsConstant, SessionService, ProductCtrl, ProductFactory)/*invoke*/ {
+	'services/session', 'controllers/product', 'services/product', 'controllers/logout']/*deps*/,
+	function (angular, MainCtrl, CategoryFactory, CategoryCtrl, LookupCtrl, VehicleFactory, IntegerSelectDirective, VehicleCtrl, CartCtrl, CartService, NgModelOnblurDirective, SignupCtrl, CompareToDirective, CustomerService, AuthEventsConstant, SessionService, ProductCtrl, ProductFactory, LogoutCtrl)/*invoke*/ {
 	'use strict';
 
 	/**
@@ -33,7 +32,6 @@ define([
 		.module('carter', ['carter.controllers.MainCtrl',
 		'carter.services.Category',
 		'carter.controllers.CategoryCtrl',
-		'carter.controllers.LoginCtrl',
 		'carter.controllers.LookupCtrl',
 		'carter.services.Vehicle',
 		'carter.directives.IntegerSelect',
@@ -48,6 +46,7 @@ define([
 		'carter.services.Session',
 		'carter.controllers.ProductCtrl',
 		'carter.services.Product',
+		'carter.controllers.LogoutCtrl',
 /*angJSDeps*/
 		'ngCookies',
 		'ngAria',
@@ -58,16 +57,16 @@ define([
 		'ngTouch',
 		'ui.router',
 		'ngMaterial'
-	]).config(function ($mdThemingProvider, $interpolateProvider, $locationProvider, $urlRouterProvider, $stateProvider, localStorageServiceProvider) {
+	]).config(function ($mdThemingProvider, $httpProvider, $interpolateProvider, $locationProvider, $urlRouterProvider, $stateProvider, localStorageServiceProvider) {
 		$interpolateProvider.startSymbol('[[');
 		$interpolateProvider.endSymbol(']]');
 		$locationProvider.html5Mode(true);
 		localStorageServiceProvider.setPrefix('carter');
+		$httpProvider.defaults.useXDomain = true;
+		delete $httpProvider.defaults.headers.common['X-Requested-With'];
+		$httpProvider.defaults.headers.common.Accept = 'application/json';
+		$httpProvider.defaults.headers.common['Content-Type'] = 'application/json';
 
-		var loginState = {
-			templateUrl: '/views/login.html',
-			controller: 'LoginCtrl'
-		};
 		var lookupState = {
 			templateUrl: '/views/lookup.html',
 			controller: 'LookupCtrl'
@@ -84,7 +83,6 @@ define([
 					templateUrl:'/views/main.html',
 					controller:'MainCtrl'
 				},
-				'login':loginState,
 				'lookup':lookupState,
 				'cart':cartState
 			}
@@ -97,7 +95,6 @@ define([
 					templateUrl:'/views/category.html',
 					controller:'CategoryCtrl'
 				},
-				'login':loginState,
 				'lookup':lookupState,
 				'cart':cartState
 			}
@@ -110,7 +107,6 @@ define([
 					templateUrl:'/views/product.html',
 					controller:'ProductCtrl'
 				},
-				'login':loginState,
 				'lookup':lookupState,
 				'cart':cartState
 			}
@@ -123,7 +119,6 @@ define([
 					templateUrl:'/views/vehicle.html',
 					controller:'VehicleCtrl'
 				},
-				'login':loginState,
 				'lookup':lookupState,
 				'cart':cartState
 			}
@@ -136,7 +131,6 @@ define([
 					templateUrl:'/views/vehicle.html',
 					controller:'VehicleCtrl'
 				},
-				'login':loginState,
 				'lookup':lookupState,
 				'cart':cartState
 			}
@@ -149,7 +143,6 @@ define([
 					templateUrl:'/views/vehicle.html',
 					controller:'VehicleCtrl'
 				},
-				'login':loginState,
 				'lookup':lookupState,
 				'cart':cartState
 			}
@@ -162,7 +155,18 @@ define([
 					templateUrl:'/views/account/new.html',
 					controller:'SignupCtrl'
 				},
-				'login':loginState,
+				'lookup':lookupState,
+				'cart':cartState
+			}
+		});
+		$stateProvider.state({
+			name: 'Logout',
+			url: '/logout',
+			views:{
+				'body':{
+					templateUrl:'/views/main.html',
+					controller:'LogoutCtrl'
+				},
 				'lookup':lookupState,
 				'cart':cartState
 			}

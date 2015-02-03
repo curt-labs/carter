@@ -18,8 +18,5 @@ define(['angular', 'angular-mocks', 'app'], function(angular, mocks, app) {
 			});
 		}));
 
-		it('should have scope defined', function () {
-			expect(scope).toBeDefined();
-		});
 	});
 });

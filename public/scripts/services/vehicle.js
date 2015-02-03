@@ -15,7 +15,7 @@ define(['angular'], function (angular) {
 				save: {
 					method: 'POST',
 					url: base + '/vehicle',
-					responseType: 'json'
+					responseType: 'jsonp'
 				}
 			});
 		});

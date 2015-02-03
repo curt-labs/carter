@@ -9,8 +9,32 @@ define(['angular'], function (angular) {
 	 * Controller of the carter
 	 */
 	angular.module('carter.controllers.CartCtrl', [])
-		.controller('CartCtrl', function ($scope, Cart, $mdDialog) {
+		.controller('CartCtrl', function ($scope, $rootScope, AuthEvents, $http, Session, Cart, Customer, $mdDialog) {
 			$scope.cart = Cart;
+			$scope.auth = {
+				email: '',
+				password: ''
+			};
+
+			var token = Session.getToken();
+			if (token !== ''){
+				$http({
+					method:'GET',
+					url:'http://goapi.curtmfg.com/shopify/account',
+					responseType: 'jsonp',
+					headers:{
+						'Authorization':'Bearer '+token
+					},
+					params:{
+						'shop':'54b963688ff6c70001000001'
+					},
+				}).success(function(data){
+					$scope.customer = data;
+				}).error(function(data){
+					console.log(data);
+				});
+				
+			}
 
 			$scope.generatePartImage = function(part){
 				if(part.images === undefined){
@@ -57,6 +81,15 @@ define(['angular'], function (angular) {
 					$scope.removeItem(item);
 					return;
 				}
+			};
+			$scope.login = function(){
+				Customer.login({'shop':'54b963688ff6c70001000001'},$scope.auth).$promise.then(function(data){
+					$rootScope.$broadcast(AuthEvents.loginSuccess);
+					Session.storeToken(data.token);
+					$scope.customer = data;
+				},function(){
+					$rootScope.$broadcast(AuthEvents.loginFailed);
+				});
 			};
 		});
 });

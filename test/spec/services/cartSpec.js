@@ -13,9 +13,6 @@ define(['angular', 'angular-mocks', 'app', 'ngStorage'], function(angular, mocks
 			Cart = _Cart_;
 		}));
 
-		it('should do something', function () {
-			expect(Cart).toBeDefined();
-		});
 
 	});
 });

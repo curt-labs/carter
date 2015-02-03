@@ -13,9 +13,5 @@ define(['angular', 'angular-mocks', 'app'], function(angular, mocks, app) {
 			Customer = _Customer_;
 		}));
 
-		it('should do something', function () {
-			expect(!!Customer).toBe(true);
-		});
-
 	});
 });

@@ -13,9 +13,6 @@ define(['angular', 'angular-mocks', 'app'], function(angular, mocks, app) {
 			Session = _Session_;
 		}));
 
-		it('should do something', function () {
-			expect(!!Session).toBe(true);
-		});
 
 	});
 });
