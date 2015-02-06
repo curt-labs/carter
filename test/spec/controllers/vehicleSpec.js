@@ -1,22 +1,22 @@
 /*jshint unused: vars */
 define(['angular', 'angular-mocks', 'app'], function(angular, mocks, app) {
-	'use strict';
+    'use strict';
 
-	describe('Controller: VehicleCtrl', function () {
+    describe('Controller: VehicleCtrl', function () {
 
-		// load the controller's module
-		beforeEach(module('carter.controllers.VehicleCtrl'));
+        // load the controller's module
+        beforeEach(module('carter.controllers.VehicleCtrl'));
 
-		var VehicleCtrl,
-			scope;
+        var VehicleCtrl,
+            scope;
 
-		// Initialize the controller and a mock scope
-		beforeEach(inject(function ($controller, $rootScope) {
-			scope = $rootScope.$new();
-			VehicleCtrl = $controller('VehicleCtrl', {
-				$scope: scope
-			});
-		}));
+        // Initialize the controller and a mock scope
+        beforeEach(inject(function ($controller, $rootScope) {
+            scope = $rootScope.$new();
+            VehicleCtrl = $controller('VehicleCtrl', {
+                $scope: scope
+            });
+        }));
 
-	});
+    });
 });

@@ -1,22 +1,21 @@
 define(['angular'], function (angular) {
-	'use strict';
+    'use strict';
 
-	/**
-	 * @ngdoc service
-	 * @name carter.Vehicle
-	 * @description
-	 * # Vehicle
-	 * Factory in the carterApp.
-	 */
-	angular.module('carter.services.Vehicle', ['ngResource'])
-		.factory('Vehicle', function ($resource) {
-			var base = 'http://goapi.curtmfg.com';
-			return $resource(base, {}, {
-				save: {
-					method: 'POST',
-					url: base + '/vehicle',
-					responseType: 'jsonp'
-				}
-			});
-		});
+    /**
+     * @ngdoc service
+     * @name carter.Vehicle
+     * @description
+     * # Vehicle
+     * Factory in the carterApp.
+     */
+    angular.module('carter.services.Vehicle', ['ngResource', 'carter.services.API'])
+        .factory('Vehicle', function ($resource, API) {
+            return $resource(API.domain, {}, {
+                save: {
+                    method: 'POST',
+                    url: API.domain + '/vehicle',
+                    responseType: 'jsonp'
+                }
+            });
+        });
 });

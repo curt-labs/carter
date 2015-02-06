@@ -9,12 +9,26 @@ define(['angular'], function (angular) {
    * Controller of the carter
    */
   angular.module('carter.controllers.AccountCtrl', [])
-    .controller('AccountCtrl', function ($scope, $location, Customer) {
+    .controller('AccountCtrl', function ($rootScope, $scope, $location, Customer, API, AuthEvents) {
       $scope.customer = {};
-      Customer.get({'shop':'54b963688ff6c70001000001'}).$promise.then(function(data){
+      Customer.get({'shop':API.shop}).$promise.then(function(data){
         $scope.customer = data;
       },function(){
+        $rootScope.$broadcast(AuthEvents.notAuthorized);
         $location.path('/login');
+      });
+
+      $scope.$watchCollection('customer',function(old, up){
+        if(up.id === undefined){
+          return;
+        }
+
+        Customer.update({'shop':API.shop}, $scope.customer).$promise.then(function(data){
+          console.log('updated');
+          console.log(data);
+        },function(){
+          console.log('Failed to update customer');
+        });  
       });
     });
 });
