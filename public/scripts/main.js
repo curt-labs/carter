@@ -112,7 +112,7 @@ require([
     'bootstrap',
     'ui.bootstrap',
     'ngStorage',
-    'LocalStorageModule'
+    'LocalStorageModule',
 ], function(angular, app, ngAria, ngCookies, ngSanitize, ngResource, ngAnimate, ngMaterial, ngMessages, ngTouch) {
     'use strict';
     /* jshint ignore:start */

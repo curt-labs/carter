@@ -15,8 +15,8 @@ define([
     'directives/compareto',
     'services/customer',
     'services/authevents',
-    'services/session', 'controllers/product', 'services/product', 'controllers/logout', 'controllers/account', 'controllers/app', 'services/cartevents', 'services/api']/*deps*/,
-    function (angular, MainCtrl, CategoryFactory, CategoryCtrl, LookupCtrl, VehicleFactory, IntegerSelectDirective, VehicleCtrl, CartCtrl, CartService, NgModelOnblurDirective, SignupCtrl, CompareToDirective, CustomerService, AuthEventsConstant, SessionService, ProductCtrl, ProductFactory, LogoutCtrl, AccountCtrl, AppCtrl, CartEventsConstant, APIConstant)/*invoke*/ {
+    'services/session', 'controllers/product', 'services/product', 'controllers/logout', 'controllers/account', 'controllers/app', 'services/cartevents', 'services/api', 'controllers/addresses', 'controllers/editaddress', 'services/geography']/*deps*/,
+    function (angular, MainCtrl, CategoryFactory, CategoryCtrl, LookupCtrl, VehicleFactory, IntegerSelectDirective, VehicleCtrl, CartCtrl, CartService, NgModelOnblurDirective, SignupCtrl, CompareToDirective, CustomerService, AuthEventsConstant, SessionService, ProductCtrl, ProductFactory, LogoutCtrl, AccountCtrl, AppCtrl, CartEventsConstant, APIConstant, AddressesCtrl, EditAddressCtrl, GeographyService)/*invoke*/ {
     'use strict';
 
     /**
@@ -50,6 +50,9 @@ define([
         'carter.controllers.AppCtrl',
         'carter.services.CartEvents',
         'carter.services.API',
+        'carter.controllers.AddressesCtrl',
+        'carter.controllers.EditAddressCtrl',
+        'carter.services.Geography',
 /*angJSDeps*/
         'ngCookies',
         'ngAria',
@@ -181,6 +184,30 @@ define([
                 'body':{
                     templateUrl:'/views/account/main.html',
                     controller:'AccountCtrl'
+                },
+                'lookup':lookupState,
+                'cart':cartState
+            }
+        });
+        $stateProvider.state({
+            name: 'Account Addresses',
+            url: '/account/addresses',
+            views:{
+                'body':{
+                    templateUrl:'/views/account/addresses.html',
+                    controller:'AddressesCtrl'
+                },
+                'lookup':lookupState,
+                'cart':cartState
+            }
+        });
+        $stateProvider.state({
+            name: 'Edit Account Addresses',
+            url: '/account/addresses/:id',
+            views:{
+                'body':{
+                    templateUrl:'/views/account/edit_address.html',
+                    controller:'EditAddressCtrl'
                 },
                 'lookup':lookupState,
                 'cart':cartState

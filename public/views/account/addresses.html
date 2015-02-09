@@ -1,0 +1,27 @@
+<md-content md-scroll-y flex class="md-padding">
+	<div class="page-header">
+		<h1>Manage Account <small>Addresses</small></h1>
+	</div>
+
+	<md-content ng-if="customer.address.length > 0">
+	    <md-card ng-repeat="addr in customer.addresses">
+	        <md-card-content>
+	            <h2>[[addr.id]]</h2>
+	        </md-card-content>
+	    </md-card>
+	</md-content>
+
+	<md-content>
+
+	    <md-card>
+	        <md-card-content>
+	            <h2>Whoops..</h2>
+	            <p>You don't have any addresses entered, why not give us one now?</p>
+	            <a href="/account/addresses/0" title="Add Address">
+	                <md-button class="md-raised md-warn">Add Address</md-button>
+	            </a>
+	        </md-card-content>
+	    </md-card>
+
+	</md-content>
+</md-content>

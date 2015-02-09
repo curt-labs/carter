@@ -42,6 +42,24 @@ define(['angular'], function (angular) {
                 headers:{
                     'Authorization': 'Bearer ' + Session.getToken()
                 }
+            },
+            createAddress:{
+                method: 'POST',
+                isArray: false,
+                url: API.domain + '/shopify/account/address',
+                responseType: 'jsonp',
+                headers:{
+                    'Authorization': 'Bearer ' + Session.getToken()
+                }
+            },
+            saveAddress:{
+                method: 'PUT',
+                isArray: false,
+                url: API.domain + '/shopify/account/address',
+                responseType: 'jsonp',
+                headers:{
+                    'Authorization': 'Bearer ' + Session.getToken()
+                }
             }
         });
     });

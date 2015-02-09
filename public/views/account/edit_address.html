@@ -1,0 +1,87 @@
+<link rel="import" href="/vendor/web-animations-js/web-animations-next-lite.dev.html">
+<link rel="import" href="/vendor/core-collapse/core-collapse.html">
+<link rel="import" href="/vendor/core-menu/core-menu.html">
+<link rel="import" href="/vendor/paper-dropdown/paper-dropdown.html">
+<link rel="import" href="/vendor/paper-item/paper-item.html">
+<link rel="import" href="/vendor/paper-dropdown-menu/paper-dropdown-menu.html">
+<md-content md-scroll-y flex class="md-padding">
+	<div class="page-header" ng-if="address.id">
+		<h1>Manage Account <small>Edit Address</small></h1>
+	</div>
+	<div class="page-header" ng-if="!address.id">
+		<h1>Manage Account <small>Add Address</small></h1>
+	</div>
+
+	<form ng-submit="saveAddress()" name="addressForm" novalidate accept-charset="utf-8">
+
+		<div class="panel panel-danger" ng-if="addressForm.$submitted && addressForm.$error.required.length > 0">
+			<div class="panel-heading">Errors while submitting address...</div>
+			<div class="panel-body">
+				<p ng-if="addressForm.$error.required.length > 0">You did not fill out all required fields.</p>
+			</div>
+		</div>
+
+		<div layout layout-sm="column">
+			<md-input-container flex>
+				<label>Name of Address (Home, Work, etc.)</label>
+				<input tabindex="1" type="text" name="name" ng-model="address.name">
+			</md-input-container>
+		</div>
+
+		<div layout layout-sm="column">
+			<md-input-container flex>
+				<label>First Name</label>
+				<input tabindex="2" type="text" name="fname" ng-model="address.first_name" required>
+			</md-input-container>
+			<md-input-container flex>
+				<label>Last Name</label>
+				<input tabindex="3" type="text" name="lname" ng-model="address.last_name" required>
+			</md-input-container>	
+		</div>
+		<div layout layout-sm="column">
+			<md-input-container flex>
+				<label>Address</label>
+				<input tabindex="4" type="text" name="add1" ng-model="address.address1" required>
+			</md-input-container>
+			<md-input-container flex>
+				<label>Address 2</label>
+				<input tabindex="5" type="text" name="add2" ng-model="address.address2">
+			</md-input-container>	
+		</div>
+		<div layout layout-sm="column">
+			<md-input-container flex>
+				<label>City</label>
+				<input tabindex="6" type="text" name="city" ng-model="address.city" required>
+			</md-input-container>
+			<md-input-container flex>
+				<label for="province">Province</label>
+				<input tabindex="7" type="text" name="province" ng-model="address.province" required>
+			</md-input-container>
+			<md-input-container flex>
+				<label>Postal Code</label>
+				<input tabindex="8" type="text" name="zip" ng-model="address.zip" required>
+			</md-input-container>	
+		</div>
+
+		<div layout layout-sm="column">
+			<md-input-container flex>
+				<label>Phone</label>
+				<input tabindex="9" type="tel" name="phone" ng-model="address.phone">
+			</md-input-container>
+		</div>
+
+		<div layout layout-sm="column">
+			<md-input-container flex>
+				<md-checkbox tabindex="10" aria-label="Default Address">Default Address</md-checkbox>
+			</md-input-container>
+		</div>
+
+		<div layout-sm="column" layout>
+			<md-button tabindex="11" type="submit" class="md-raised md-warn">Save</md-button>		
+		</div>
+		
+
+		
+	</form>
+
+</md-content>

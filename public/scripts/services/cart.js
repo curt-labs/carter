@@ -22,11 +22,12 @@ define(['angular'], function (angular) {
         }
 
         cart.addItem = function(prod, qty){
+            var item;
             // check if this item is already in the cart,
             // if it is, we'll increment the quantity
             // and GTFO
             for (var i = cart.items.length - 1; i >= 0; i--) {
-                var item = cart.items[i];
+                item = cart.items[i];
                 if (item.id === prod.id){
                     cart.items[i].quantity++;
                     $rootScope.$broadcast(CartEvents.quantityUpdated);
@@ -36,7 +37,7 @@ define(['angular'], function (angular) {
             if(qty === undefined || qty === 0){
                 qty = 1;
             }
-            var item = {
+            item = {
                 id: prod.id,
                 brandID: prod.brandID,
                 quantity: qty,

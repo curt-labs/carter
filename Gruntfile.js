@@ -47,7 +47,7 @@ module.exports = function (grunt) {
 				tasks: ['newer:jshint:test', 'karma']
 			},
 			compass: {
-				files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+				files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}','public/vendor/bourbon/app/assets/stylesheets/_bourbon.scss'],
 				tasks: ['compass:server', 'autoprefixer']
 			},
 			gruntfile: {
@@ -174,7 +174,9 @@ module.exports = function (grunt) {
 				ignorePath:  /\.\.\//
 			},
 			sass: {
-			src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}', '<%= yeoman.app %>/vendor/bootstrap-sass-official/assets/stylesheets/*.scss'],
+			src: [
+				'<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'
+			],
 				ignorePath: /(\.\.\/){1,2}public\/vendor\//
 			}
 		},
