@@ -87,6 +87,7 @@ $ gcloud preview managed-instance-groups --zone us-central1-f start-rolling-upda
 ```
 
 #### Jenkins Deployment Server (Optional)
+gcloud config set project bitnami-launchpad
 ```shell
 $ export PROJECT_NAME=<project-id>
 $ export JENKINS_PASS=<password>
@@ -94,7 +95,7 @@ $ gcloud compute \
     instances create bitnami-jenkins \
     --project $PROJECT_NAME \
     --image-project bitnami-launchpad \
-    --image bitnami-jenkins-1-587-0-linux-debian-7-x86-64-image \
+    --image bitnami-jenkins-1-598-0-r01-linux-debian-7-x86-64 \
     --zone us-central1-a \
     --machine-type n1-standard-1 \
     --metadata "bitnami-base-password=${JENKINS_PASS}" \
